@@ -110,12 +110,12 @@
         }
         /* For wider modals, see: https://github.com/twitter/bootstrap/issues/675 */
         .modal{
-            /*
+            
             width: 940px;
-            margin-left: -470px; */
-            /* margin-left = -1 * (width/2) */
+            margin-left: -470px;
+            /* margin-left = -1 * (width/2)
             width: 1170px;
-            margin-left: -585px;
+            margin-left: -585px; */
         }
         .modal-header {
             text-align: center;
@@ -123,13 +123,15 @@
         /* Quick hack to make the buttons look like they are centered in the modal.
            Really should read the docs to figure out how to do this correctly. */
         .btn-primary {
-            margin-right: 18px;
+            /* margin-right: 18px; */
+            margin-right: 110px;
         }
         .modal-footer button {
             /* 940 / 7 (buttons) = ~134 and change
                so make each button 120 with some padding for space */
             /* width: 120px; */
-            width: 150px;
+            /* width: 150px; */
+            width: 90px;
             font-size: 16px;
             font-weight: bold;
             /* Rounded Borders */
@@ -335,15 +337,15 @@
             <!-- Category Headings -->
             <div class="row text-center">
                 <div class="span6 topcat super-topic"><h2>Q&A</h2></div>
-                <div class="span6 topcat super-topic"><h2>Describe the person</h2></div>
+                <div class="span6 topcat super-topic"><h2>Make a sentence</h2></div>
             </div>
             <div class="row text-center">
-                <div class="span2 topic sub-topic"><h2>Men</h2></div>
-                <div class="span2 topic sub-topic"><h2>Women</h2></div>
-                <div class="span2 topic sub-topic"><h2>Fujisato</h2></div>
-                <div class="span2 topic sub-topic"><h2>Men</h2></div>
-                <div class="span2 topic sub-topic"><h2>Women</h2></div>
-                <div class="span2 topic sub-topic"><h2>Fujisato</h2></div>
+                <div class="span2 topic sub-topic"><h2>Random</h2></div>
+                <div class="span2 topic sub-topic"><h2>People</h2></div>
+                <div class="span2 topic sub-topic"><h2>Geography?</h2></div>
+                <div class="span2 topic sub-topic"><h2>Random</h2></div>
+                <div class="span2 topic sub-topic"><h2>Animals</h2></div>
+                <div class="span2 topic sub-topic"><h2>Geography?</h2></div>
             </div>
             <!-- Question 1 -->
             <div class="row show-grid">
@@ -452,7 +454,7 @@
                 <h3 id="modalLabelC1Q1">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the Japanese basketball player who played in the NBA?</p>
+                <p>What is a subject that teaches students history?</p>
 
                 <!-- http://stackoverflow.com/questions/9419470/how-do-i-get-my-accordion-to-load-with-all-the-menus-closed
                 To have accordian collapsed by default, remove class "in". Include the class to open by default. -->
@@ -465,7 +467,7 @@
                         </div>
                         <div id="collapseC1Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Yuta Tabuse is <br/><br/><span class="extra-words">(the Japanese basketball player who played in the NBA)</span>.
+                                Social studies is.
                             </div>
                         </div>
                     </div>
@@ -490,7 +492,7 @@
                 <h3 id="modalLabelC1Q2">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the man who said, “I have a dream...”?</p>
+                <p>What is a machine that keeps people warm in winter?</p>
                 <div class="accordion" id="accordionC1Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -500,7 +502,7 @@
                         </div>
                         <div id="collapseC1Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Martin Luther King, Jr. is <br/><br/><span class="extra-words">(the man who said, “I have a dream...”)</span>.
+                                Heater / kotatsu / etc. is.
                             </div>
                         </div>
                     </div>
@@ -522,7 +524,7 @@
                 <h3 id="modalLabelC1Q3">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the artist who painted Guernica?</p>
+                <p>What is a tool that cuts paper?</p>
                 <div class="accordion" id="accordionC1Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -532,7 +534,7 @@
                         </div>
                         <div id="collapseC1Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Pablo Picasso is <br/><br/><span class="extra-words">(the artist who painted Guernica)</span>.
+                                A scissor is.
                             </div>
                         </div>
                     </div>
@@ -554,7 +556,7 @@
                 <h3 id="modalLabelC1Q4">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the Japanese fencer who won a silver medal in Beijing?</p>
+                <p>What is the color that tells drivers to stop?</p>
                 <div class="accordion" id="accordionC1Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -564,7 +566,7 @@
                         </div>
                         <div id="collapseC1Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Yuki Ota is <br/><br/><span class="extra-words">(the Japanese fencer who won a silver medal in Beijing)</span>.
+                                Red is.
                             </div>
                         </div>
                     </div>
@@ -586,8 +588,7 @@
                 <h3 id="modalLabelC1Q5">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the actor who plays Captain Jack Sparrow</p>
-                <p>in the movie “Pirates of the Carribean”?</p>
+                <p>What is the animal that makes the sound "cock-a-doodle-doo"?</p>
                 <div class="accordion" id="accordionC1Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -597,8 +598,7 @@
                         </div>
                         <div id="collapseC1Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>Jonny Depp is <br/><br/><span class="extra-words">(the actor who plays Captain Jack Sparrow</span></p>
-                                <p><span class="extra-words">in the movie “Pirates of the Carribean”)</span>.</p>
+                                A chicken is.
                             </div>
                         </div>
                     </div>
@@ -620,7 +620,7 @@
                 <h3 id="modalLabelC1Q6">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the programmer who created Facebook?</p>
+                <p>What is the sport that makes the most people in the world excited?</p>
                 <div class="accordion" id="accordionC1Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -630,7 +630,7 @@
                         </div>
                         <div id="collapseC1Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Mark Zuckerburg is <br/><br/><span class="extra-words">(the programmer who created Facebook)</span>.
+                                Soccer is.
                             </div>
                         </div>
                     </div>
@@ -701,7 +701,7 @@
                 <h3 id="modalLabelC2Q1">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the girl who is friends with Stitch?</p>
+                <p>What is a book that makes you happy?</p>
                 <div class="accordion" id="accordionC2Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -711,7 +711,7 @@
                         </div>
                         <div id="collapseC2Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Lilo is <br/><br/><span class="extra-words">(the girl who is friends with Stitch)</span>.
+                                ~ is.
                             </div>
                         </div>
                     </div>
@@ -733,7 +733,7 @@
                 <h3 id="modalLabelC2Q2">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the volleyball player who won an Olympic bronze medal?</p>
+                <p>What is a movie that makes you sad?</p>
                 <div class="accordion" id="accordionC2Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -743,7 +743,7 @@
                         </div>
                         <div id="collapseC2Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Ebata Yukiko is <br/><br/><span class="extra-words">(the volleyball player who won an Olympic bronze medal)</span>.
+                                ~ is.
                             </div>
                         </div>
                     </div>
@@ -765,7 +765,7 @@
                 <h3 id="modalLabelC2Q3">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the singer who sings “Invader Invader”?</p>
+                <p>What is a sport that makes (pick a student) excited?</p>
                 <div class="accordion" id="accordionC2Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -775,7 +775,7 @@
                         </div>
                         <div id="collapseC2Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Kyary Pamyu Pamyu is <br/><br/><span class="extra-words">(the singer who sings “Invader Invader”)</span>.
+                                ~ is.
                             </div>
                         </div>
                     </div>
@@ -797,7 +797,7 @@
                 <h3 id="modalLabelC2Q4">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the writer who wrote Harry Potter?</p>
+                <p>What is a comic that makes Mr. Cheng happy?</p>
                 <div class="accordion" id="accordionC2Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -807,7 +807,7 @@
                         </div>
                         <div id="collapseC2Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                J.K. Rowling is <br/><br/><span class="extra-words">(the writer who wrote Harry Potter)</span>.
+                                ~ is.
                             </div>
                         </div>
                     </div>
@@ -829,7 +829,7 @@
                 <h3 id="modalLabelC2Q5">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who was the woman who is blind and deaf?</p>
+                <p>What is a subject that makes many students in 3A excited?</p>
                 <div class="accordion" id="accordionC2Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -839,7 +839,7 @@
                         </div>
                         <div id="collapseC2Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Helen Keller was <br/><br/><span class="extra-words">(the woman who is blind and deaf)</span>.
+                                ~ is.
                             </div>
                         </div>
                     </div>
@@ -861,7 +861,7 @@
                 <h3 id="modalLabelC2Q6">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who was the first woman who won a Nobel Prize?</p>
+                <p>What is a song that makes Mr. Ito sad?</p>
                 <div class="accordion" id="accordionC2Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -871,7 +871,7 @@
                         </div>
                         <div id="collapseC2Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Marie Curie was <br/><br/><span class="extra-words">(the first woman who won a Nobel Prize)</span>.
+                                ~ is.
                             </div>
                         </div>
                     </div>
@@ -935,7 +935,7 @@
                 <h3 id="modalLabelC3Q1">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the teacher who teaches art in Fujisato Junior High School?</p>
+                <p>What is a river that runs though Fujisato?</p>
                 <div class="accordion" id="accordionC3Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -945,7 +945,7 @@
                         </div>
                         <div id="collapseC3Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Mr. Iwaya is <br/><br/><span class="extra-words">(the teacher who teaches art in Fujisato Junior High School)</span>.
+                                Fujikoto River is.
                             </div>
                         </div>
                     </div>
@@ -967,7 +967,7 @@
                 <h3 id="modalLabelC3Q2">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the first grade student who plays table tennis?</p>
+                <p>What is the line that goes from Futatsui to Noshiro?</p>
                 <div class="accordion" id="accordionC3Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -977,7 +977,7 @@
                         </div>
                         <div id="collapseC3Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Kai is <br/><br/><span class="extra-words">(the first grade student who plays table tennis)</span>.
+                                ~ is.
                             </div>
                         </div>
                     </div>
@@ -999,7 +999,7 @@
                 <h3 id="modalLabelC3Q3">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the second grade student who plays the drums?</p>
+                <p>What is the wall that protected many people in China?</p>
                 <div class="accordion" id="accordionC3Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1009,7 +1009,7 @@
                         </div>
                         <div id="collapseC3Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Nahoko is <br/><br/><span class="extra-words">(the second grade student who plays the drums)</span>.
+                                The Great Wall is.
                             </div>
                         </div>
                     </div>
@@ -1031,7 +1031,7 @@
                 <h3 id="modalLabelC3Q4">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the teacher who is the newest teacher at Fujisato Junior High School?</p>
+                <p>What is the park that makes many people in New York happy?</p>
                 <div class="accordion" id="accordionC3Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1041,7 +1041,7 @@
                         </div>
                         <div id="collapseC3Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Ms. Nomura is <br/><br/><span class="extra-words">(the teacher who is the newest teacher at Fujisato Junior High School)</span>.
+                                Central Park is.
                             </div>
                         </div>
                     </div>
@@ -1063,7 +1063,7 @@
                 <h3 id="modalLabelC3Q5">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who is the man who is the principal of Fujisato Elementary School?</p>
+                <p>What is the tallest building that stands in Japan?</p>
                 <div class="accordion" id="accordionC3Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1073,7 +1073,7 @@
                         </div>
                         <div id="collapseC3Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Mr. Itakura is <br/><br/><span class="extra-words">(the man who is the principal of Fujisato Elementary School)</span>.
+                                The Sky Tree is.
                             </div>
                         </div>
                     </div>
@@ -1095,8 +1095,7 @@
                 <h3 id="modalLabelC3Q6">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>Who was the teacher in training </p>
-                <p>who only taught in Fujisato Junior High School during the summer?</p>
+                <p>What is the river that runs through New York?</p>
                 <div class="accordion" id="accordionC3Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1106,8 +1105,7 @@
                         </div>
                         <div id="collapseC3Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>Tanaka Daiki was <br/><br/><span class="extra-words">(the teacher in training </span></p>
-                                <p><span class="extra-words">who only taught in Fujisato Junior High School during the summer)</span>.</p>
+                                <p>The Hudson River is.</p>
                             </div>
                         </div>
                     </div>
@@ -1170,10 +1168,10 @@
         <div id="modalC4Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q1" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q1">Describe the person</h3>
+                <h3 id="modalLabelC4Q1">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Kevin (from the textbook)</p>
+                <p>Basketball</p>
                 <div class="accordion" id="accordionC4Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1183,7 +1181,7 @@
                         </div>
                         <div id="collapseC4Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~
                             </div>
                         </div>
                     </div>
@@ -1202,10 +1200,10 @@
         <div id="modalC4Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q2" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q2">Describe the person</h3>
+                <h3 id="modalLabelC4Q2">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Nobita</p>
+                <p>Computers</p>
                 <div class="accordion" id="accordionC4Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1215,7 +1213,7 @@
                         </div>
                         <div id="collapseC4Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~
                             </div>
                         </div>
                     </div>
@@ -1234,10 +1232,10 @@
         <div id="modalC4Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q3" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q3">Describe the person</h3>
+                <h3 id="modalLabelC4Q3">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Luigi</p>
+                <p>One Piece</p>
                 <div class="accordion" id="accordionC4Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1247,7 +1245,7 @@
                         </div>
                         <div id="collapseC4Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~
                             </div>
                         </div>
                     </div>
@@ -1266,10 +1264,10 @@
         <div id="modalC4Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q4" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q4">Describe the person</h3>
+                <h3 id="modalLabelC4Q4">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Barack Obama</p>
+                <p>(anything, your choice)</p>
                 <div class="accordion" id="accordionC4Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1279,7 +1277,7 @@
                         </div>
                         <div id="collapseC4Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~
                             </div>
                         </div>
                     </div>
@@ -1298,10 +1296,10 @@
         <div id="modalC4Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q5" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q5">Describe the person</h3>
+                <h3 id="modalLabelC4Q5">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Ringo Starr</p>
+                <p>Green</p>
                 <div class="accordion" id="accordionC4Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1311,7 +1309,7 @@
                         </div>
                         <div id="collapseC4Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~
                             </div>
                         </div>
                     </div>
@@ -1330,11 +1328,10 @@
         <div id="modalC4Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q6" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q6">Describe the person</h3>
+                <h3 id="modalLabelC4Q6">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Neil Armstrong</p>
-                <p class="hint">Hint: has walked / has been to / went to / walked on</p>
+                <p>English</p>
                 <div class="accordion" id="accordionC4Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1363,7 +1360,7 @@
         <div id="modalC4Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q7" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q7">Describe the person</h3>
+                <h3 id="modalLabelC4Q7">Make a sentence</h3>
             </div>
             <div class="modal-body">
                 <p>I ______ have milk and cereal ______ breakfast, ______ today I had an onigiri.</p>
@@ -1405,10 +1402,10 @@
         <div id="modalC5Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q1" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q1">Describe the person</h3>
+                <h3 id="modalLabelC5Q1">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Ms. Green (from the old textbook)</p>
+                <p>Cats</p>
                 <div class="accordion" id="accordionC5Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1418,7 +1415,7 @@
                         </div>
                         <div id="collapseC5Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~ are the animal that ~ .
                             </div>
                         </div>
                     </div>
@@ -1437,10 +1434,10 @@
         <div id="modalC5Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q2" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q2">Describe the person</h3>
+                <h3 id="modalLabelC5Q2">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Shizuka</p>
+                <p>Dogs</p>
                 <div class="accordion" id="accordionC5Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1450,7 +1447,7 @@
                         </div>
                         <div id="collapseC5Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~ are the animal that ~ .
                             </div>
                         </div>
                     </div>
@@ -1469,10 +1466,10 @@
         <div id="modalC5Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q3" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q3">Describe the person</h3>
+                <h3 id="modalLabelC5Q3">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Princess Peach</p>
+                <p>Lions</p>
                 <div class="accordion" id="accordionC5Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1482,7 +1479,7 @@
                         </div>
                         <div id="collapseC5Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~ are the animal that ~ .
                             </div>
                         </div>
                     </div>
@@ -1501,10 +1498,10 @@
         <div id="modalC5Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q4" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q4">Describe the person</h3>
+                <h3 id="modalLabelC5Q4">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Utada Hikaru</p>
+                <p>Fish</p>
                 <div class="accordion" id="accordionC5Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1514,7 +1511,7 @@
                         </div>
                         <div id="collapseC5Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~ are the animal that ~ .
                             </div>
                         </div>
                     </div>
@@ -1533,10 +1530,10 @@
         <div id="modalC5Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q5" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q5">Describe the person</h3>
+                <h3 id="modalLabelC5Q5">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Audrey Hepburn</p>
+                <p>Kangaroos</p>
                 <div class="accordion" id="accordionC5Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1546,7 +1543,7 @@
                         </div>
                         <div id="collapseC5Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~ are the animal that ~ .
                             </div>
                         </div>
                     </div>
@@ -1565,10 +1562,10 @@
         <div id="modalC5Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q6" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q6">Describe the person</h3>
+                <h3 id="modalLabelC5Q6">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Monica Cheng</p>
+                <p>Elephants</p>
                 <div class="accordion" id="accordionC5Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1578,7 +1575,7 @@
                         </div>
                         <div id="collapseC5Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~ are the animal that ~ .
                             </div>
                         </div>
                     </div>
@@ -1597,7 +1594,7 @@
         <div id="modalC5Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q7" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q7">Describe the person</h3>
+                <h3 id="modalLabelC5Q7">Make a sentence</h3>
             </div>
             <div class="modal-body">
                 <p>A dog that helps blind people.</p>
@@ -1639,10 +1636,10 @@
         <div id="modalC6Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q1" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC6Q1">Describe the person</h3>
+                <h3 id="modalLabelC6Q1">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Mr. Ito</p>
+                <p>Itoku</p>
                 <div class="accordion" id="accordionC6Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1652,7 +1649,7 @@
                         </div>
                         <div id="collapseC6Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~
                             </div>
                         </div>
                     </div>
@@ -1671,10 +1668,11 @@
         <div id="modalC6Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q2" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC6Q2">Describe the person</h3>
+                <h3 id="modalLabelC6Q2">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Any Fujisato Junior High School teacher.</p>
+                <p>The Nile River</p>
+                <p class="hint">Hint: ~ that runs through ~ </p>
                 <div class="accordion" id="accordionC6Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1684,7 +1682,7 @@
                         </div>
                         <div id="collapseC6Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~
                             </div>
                         </div>
                     </div>
@@ -1703,10 +1701,10 @@
         <div id="modalC6Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q3" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC6Q3">Describe the person</h3>
+                <h3 id="modalLabelC6Q3">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Any third grade student.</p>
+                <p>The Sun</p>
                 <div class="accordion" id="accordionC6Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1716,7 +1714,7 @@
                         </div>
                         <div id="collapseC6Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~
                             </div>
                         </div>
                     </div>
@@ -1735,10 +1733,10 @@
         <div id="modalC6Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q4" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC6Q4">Describe the person</h3>
+                <h3 id="modalLabelC6Q4">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Any second grade student.</p>
+                <p>The Moon</p>
                 <div class="accordion" id="accordionC6Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1748,7 +1746,7 @@
                         </div>
                         <div id="collapseC6Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~
                             </div>
                         </div>
                     </div>
@@ -1767,10 +1765,10 @@
         <div id="modalC6Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q5" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC6Q5">Describe the person</h3>
+                <h3 id="modalLabelC6Q5">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Any first grade student.</p>
+                <p>Shirakami Mountains</p>
                 <div class="accordion" id="accordionC6Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1780,7 +1778,7 @@
                         </div>
                         <div id="collapseC6Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~
                             </div>
                         </div>
                     </div>
@@ -1799,10 +1797,10 @@
         <div id="modalC6Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q6" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC6Q6">Describe the person</h3>
+                <h3 id="modalLabelC6Q6">Make a sentence</h3>
             </div>
             <div class="modal-body">
-                <p>Mr. Kikuchi</p>
+                <p>Japan</p>
                 <div class="accordion" id="accordionC6Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1812,7 +1810,7 @@
                         </div>
                         <div id="collapseC6Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                ~
                             </div>
                         </div>
                     </div>
