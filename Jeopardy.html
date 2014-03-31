@@ -1,0 +1,2251 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Let's Play Jeopardy!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Le styles -->
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="assets/css/docs.css" rel="stylesheet">
+        <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+        <script src="assets/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Le fav and touch icons -->
+        <!--
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="assets/ico/favicon.png">
+        -->
+
+        <style media="screen" type="text/css">
+        /* Override the Bootstrap Doc style that puts padding on top of the body. */
+        body {
+            padding-top: 0px;
+            background-color: #69F;
+        }
+        h1 {
+            margin: 30px;
+        }
+        .topic h2 {
+            background-color: #04B486;
+            font-size: 18px;
+            font-weight: bold;
+            font-style: italic;
+        }
+        .score {
+            font-size: 25px;
+        }
+        .score th, .score td {
+            text-align: center;
+            /* padding: 4px; /* remove this if default table fits on screen height */
+        }
+        .score th {
+            background-color: #ABABAB;
+        }
+        .score td {
+            background-color: #D5D6D6;
+        }
+        /* Overwrite the default margin on tables in Bootstrap. */
+        .score table {
+            margin-bottom: 0px;
+        }
+        #team1 {
+            font-weight: bold;
+            color: red;
+        }
+        .question {
+            /*background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(red));*/
+            display: block;
+            padding: 10px 12px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .hint {
+            font-size: 14px;
+            font-weight: normal;
+            font-style: italic;
+            margin-top: 7px;
+            color: #5882FA;
+        }
+        .who-am-i {
+            /*
+            font-size: 14px;
+            line-height: 16px;
+            */
+            font-weight: normal;
+            font-style: italic;
+        }
+        .category1 a {}
+        .category2 a {}
+        .category3 a {}
+        .category4 a {}
+        .category5 a {}
+        .category6 a {}
+        .accordion a {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        /* For wider modals, see: https://github.com/twitter/bootstrap/issues/675 */
+        .modal{
+            /*
+            width: 940px;
+            margin-left: -470px; */
+            /* margin-left = -1 * (width/2) */
+            width: 1170px;
+            margin-left: -585px;
+        }
+        .modal-header {
+            text-align: center;
+        }
+        /* Quick hack to make the buttons look like they are centered in the modal.
+           Really should read the docs to figure out how to do this correctly. */
+        .btn-primary {
+            margin-right: 18px;
+        }
+        .modal-footer button {
+            /* 940 / 7 (buttons) = ~134 and change
+               so make each button 120 with some padding for space */
+            /* width: 120px; */
+            width: 150px;
+            font-size: 16px;
+            font-weight: bold;
+            /* Rounded Borders */
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+            border-radius: 4px;
+            /* Border Shadows */
+            -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            /* Fading Borders in and out */
+            -webkit-transition: all 0.6s ease-out;
+            -moz-transition: all 0.6s ease-out;
+            -ms-transition: all 0.6s ease-out;
+            -o-transition: all 0.6s ease-out;
+            transition: all 0.6s ease-out;
+        }
+        .modal-footer button.btn {
+            border: 3px solid #6E6E6E;
+        }
+        .modal-footer button.btn-primary {
+            border: 3px solid #6E6E6E;
+        }
+        .modal-footer button:hover {
+            border: 3px solid #FE2EF7;
+            /* Border Shadows */
+            -webkit-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            /* Fading Borders in */
+            -webkit-transition: all 0.4s ease-in;
+            -moz-transition: all 0.4s ease-in;
+            -ms-transition: all 0.4s ease-in;
+            -o-transition: all 0.4s ease-in;
+            transition: all 0.4s ease-in;
+        }
+        .modal-body p {
+            text-align: center;
+            font-size: 30px;
+            padding: 10px 0px;
+            line-height: 36px;
+        }
+        .accordion-inner {
+            text-align: center;
+            font-size: 30px;
+        }
+        .error-correction {
+            color: red;
+            font-weight: bold;
+        }
+        .fill-in-the-blank {
+            color: blue;html5 embed music localhtml5 embed music local
+            font-weight: bold;
+        }
+        .accordion-heading a {
+            font-size: 24px;
+        }
+        .flowplayer {
+            width: 80%;
+        }
+        .swf-video object {
+            display: block;
+            margin: 0 auto;
+            padding-bottom: 20px;
+        }
+        .question-image {
+            display: block;
+            margin: 0 auto;
+            padding-bottom: 20px;
+            height:200px;
+        }
+        .color-box {
+            padding: 10px;
+        }
+        a.btn:hover {
+            border: 3px solid #FE2EF7;
+            /* Border Shadows */
+            -webkit-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            /* Fading Borders in */
+            -webkit-transition: all 0.4s ease-in;
+            -moz-transition: all 0.4s ease-in;
+            -ms-transition: all 0.4s ease-in;
+            -o-transition: all 0.4s ease-in;
+            transition: all 0.4s ease-in;
+        }
+        a.btn {
+            border: 3px solid #f5f5f5;
+            /* Rounded Borders */
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+            border-radius: 4px;
+            /* Border Shadows */
+            -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            /* Fading Borders in and out */
+            -webkit-transition: all 0.6s ease-out;
+            -moz-transition: all 0.6s ease-out;
+            -ms-transition: all 0.6s ease-out;
+            -o-transition: all 0.6s ease-out;
+            transition: all 0.6s ease-out;
+        }
+        a.exit {
+            /*background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(red));*/
+            display: block;
+            padding: 10px 12px;
+            font-size: 18px;
+            font-weight: bold;
+            background-image: none;
+            background-repeat: none;
+            background-color: #F5A9A9;
+            border: 3px solid #F5A9A9;
+        }
+        a.exit:hover {
+            background-color: #FE2E2E;
+            border: 3px solid #FE2E2E;
+        }
+        </style>
+
+        <script type="text/javascript" src="swfobject/swfobject.js"></script>
+        <script type="text/javascript">
+            /* Example video:
+            swfobject.registerObject("./CMSP-Rulaz", "9.0.0");
+
+            ... later in code ...
+                <div class="swf-video">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="352" height="264" id="CMSP-Rulaz">
+                        <param name="movie" value="./CMSP-Rulaz.swf">
+                        <!--[if !IE]>-->
+                        <object type="application/x-shockwave-flash" data="./CMSP-Rulaz.swf" width="352" height="264">
+                        <!--<![endif]-->
+                            <a href="http://www.adobe.com/go/getflashplayer">
+                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
+                            </a>
+                        <!--[if !IE]>-->
+                        </object>
+                        <!--<![endif]-->
+                    </object>
+                </div>
+            */
+            swfobject.registerObject("Toy-Story-Video", "9.0.0");
+            swfobject.registerObject("Spirited-Away-Video", "9.0.0");
+            swfobject.registerObject("LotR-Video", "9.0.0");
+            swfobject.registerObject("Tokyo-Godfathers-Video", "9.0.0");
+        </script>
+
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row text-center">
+                <div class="span12">
+                    <h1>Jeopardy!</h1>
+                </div>
+            </div>
+            <!-- Team Scores -->
+            <div class="row">
+                <div class="span12 score">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="info">
+                                <th>Team 1</th>
+                                <th>Team 2</th>
+                                <th>Team 3</th>
+                                <th>Team 4</th>
+                                <th>Team 5</th>
+                                <th>Team 6</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="team-1-score">0</td>
+                                <td id="team-2-score">0</td>
+                                <td id="team-3-score">0</td>
+                                <td id="team-4-score">0</td>
+                                <td id="team-5-score">0</td>
+                                <td id="team-6-score">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Category Headings -->
+            <div class="row text-center">
+                <div class="span2 topic"><h2>What's wrong?</h2></div>
+                <div class="span2 topic"><h2>Make a sentence</h2></div>
+                <div class="span2 topic"><h2>Who am I?</h2></div>
+                <div class="span2 topic"><h2>Fill in the blank</h2></div>
+                <div class="span2 topic"><h2>Sounds like...</h2></div>
+                <div class="span2 topic"><h2>Other Subjects</h2></div>
+            </div>
+            <!-- Question 1 -->
+            <div class="row show-grid">
+                <div class="span2 category1"><a href="#modalC1Q1" role="button" class="btn question" data-toggle="modal">100</a></div>
+                <div class="span2 category2"><a href="#modalC2Q1" role="button" class="btn question" data-toggle="modal">100</a></div>
+                <div class="span2 category3"><a href="#modalC3Q1" role="button" class="btn question" data-toggle="modal">100</a></div>
+                <div class="span2 category4"><a href="#modalC4Q1" role="button" class="btn question" data-toggle="modal">100</a></div>
+                <div class="span2 category5"><a href="#modalC5Q1" role="button" class="btn question" data-toggle="modal">100</a></div>
+                <div class="span2 category6"><a href="#modalC6Q1" role="button" class="btn question" data-toggle="modal">100</a></div>
+            </div>
+            <!-- Question 2 -->
+            <div class="row show-grid">
+                <div class="span2 category1"><a href="#modalC1Q2" role="button" class="btn question" data-toggle="modal">200</a></div>
+                <div class="span2 category2"><a href="#modalC2Q2" role="button" class="btn question" data-toggle="modal">200</a></div>
+                <div class="span2 category3"><a href="#modalC3Q2" role="button" class="btn question" data-toggle="modal">200</a></div>
+                <div class="span2 category4"><a href="#modalC4Q2" role="button" class="btn question" data-toggle="modal">200</a></div>
+                <div class="span2 category5"><a href="#modalC5Q2" role="button" class="btn question" data-toggle="modal">200</a></div>
+                <div class="span2 category6"><a href="#modalC6Q2" role="button" class="btn question" data-toggle="modal">200</a></div>
+            </div>
+            <!-- Question 3 -->
+            <div class="row show-grid">
+                <div class="span2 category1"><a href="#modalC1Q3" role="button" class="btn question" data-toggle="modal">300</a></div>
+                <div class="span2 category2"><a href="#modalC2Q3" role="button" class="btn question" data-toggle="modal">300</a></div>
+                <div class="span2 category3"><a href="#modalC3Q3" role="button" class="btn question" data-toggle="modal">300</a></div>
+                <div class="span2 category4"><a href="#modalC4Q3" role="button" class="btn question" data-toggle="modal">300</a></div>
+                <div class="span2 category5"><a href="#modalC5Q3" role="button" class="btn question" data-toggle="modal">300</a></div>
+                <div class="span2 category6"><a href="#modalC6Q3" role="button" class="btn question" data-toggle="modal">300</a></div>
+            </div>
+            <!-- Question 4 -->
+            <div class="row show-grid">
+                <div class="span2 category1"><a href="#modalC1Q4" role="button" class="btn question" data-toggle="modal">400</a></div>
+                <div class="span2 category2"><a href="#modalC2Q4" role="button" class="btn question" data-toggle="modal">400</a></div>
+                <div class="span2 category3"><a href="#modalC3Q4" role="button" class="btn question" data-toggle="modal">400</a></div>
+                <div class="span2 category4"><a href="#modalC4Q4" role="button" class="btn question" data-toggle="modal">400</a></div>
+                <div class="span2 category5"><a href="#modalC5Q4" role="button" class="btn question" data-toggle="modal">400</a></div>
+                <div class="span2 category6"><a href="#modalC6Q4" role="button" class="btn question" data-toggle="modal">400</a></div>
+            </div>
+            <!-- Question 5 -->
+            <div class="row show-grid">
+                <div class="span2 category1"><a href="#modalC1Q5" role="button" class="btn question" data-toggle="modal">500</a></div>
+                <div class="span2 category2"><a href="#modalC2Q5" role="button" class="btn question" data-toggle="modal">500</a></div>
+                <div class="span2 category3"><a href="#modalC3Q5" role="button" class="btn question" data-toggle="modal">500</a></div>
+                <div class="span2 category4"><a href="#modalC4Q5" role="button" class="btn question" data-toggle="modal">500</a></div>
+                <div class="span2 category5"><a href="#modalC5Q5" role="button" class="btn question" data-toggle="modal">500</a></div>
+                <div class="span2 category6"><a href="#modalC6Q5" role="button" class="btn question" data-toggle="modal">500</a></div>
+            </div>
+            <!-- Question 6 -->
+            <div class="row show-grid">
+                <div class="span2 category1"><a href="#modalC1Q6" role="button" class="btn question" data-toggle="modal">600</a></div>
+                <div class="span2 category2"><a href="#modalC2Q6" role="button" class="btn question" data-toggle="modal">600</a></div>
+                <div class="span2 category3"><a href="#modalC3Q6" role="button" class="btn question" data-toggle="modal">600</a></div>
+                <div class="span2 category4"><a href="#modalC4Q6" role="button" class="btn question" data-toggle="modal">600</a></div>
+                <div class="span2 category5"><a href="#modalC5Q6" role="button" class="btn question" data-toggle="modal">600</a></div>
+                <div class="span2 category6"><a href="#modalC6Q6" role="button" class="btn question" data-toggle="modal">600</a></div>
+            </div>
+            <!-- Question 7 -->
+            <div class="row show-grid">
+                <div class="span2 category1"><a href="#modalC1Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category2"><a href="#modalC2Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category3"><a href="#modalC3Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category4"><a href="#modalC4Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category5"><a href="#modalC5Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category6"><a href="#modalC6Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+            </div>
+            <!-- Can go up to 9 rows for questions, though they won't finish with that many. They can't even finish 7 rows (barely)
+            <div class="row show-grid">
+                <div class="span2 category1"><a href="#modalC1Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category2"><a href="#modalC2Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category3"><a href="#modalC3Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category4"><a href="#modalC4Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category5"><a href="#modalC5Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category6"><a href="#modalC6Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+            </div>
+            <div class="row show-grid">
+                <div class="span2 category1"><a href="#modalC1Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category2"><a href="#modalC2Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category3"><a href="#modalC3Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category4"><a href="#modalC4Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category5"><a href="#modalC5Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+                <div class="span2 category6"><a href="#modalC6Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
+            </div>
+            -->
+            <div class="row show-grid">
+                <div class="offset5 span2">
+                    <a href="#" role="button" class="btn exit" onclick="self.close()">Exit Game</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modals for all questions
+        IDs to edit to make unique: modalC#Q#, accordionC#Q#, collapseC#Q#, modalLabelC#Q#
+        -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             [START] Category 1 Questions
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        -->
+        <div id="modalC1Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q1" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC1Q1">Find the error(s) in the sentence(s).</h3>
+            </div>
+            <div class="modal-body">
+                <p>Do you study math last night?</p>
+
+                <!-- http://stackoverflow.com/questions/9419470/how-do-i-get-my-accordion-to-load-with-all-the-menus-closed
+                To have accordian collapsed by default, remove class "in". Include the class to open by default. -->
+                <div class="accordion" id="accordionC1Q1">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC1Q1" href="#collapseC1Q1">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC1Q1" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <span class="error-correction">Did</span> you study math last night?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+                <!-- Text example to show how to close this modal and simultaneously open another modal.
+                <a href="#modalC2Q1" role="button" class="btn" data-toggle="modal" data-dismiss="modal">Test</a>
+                -->
+            </div>
+        </div>
+        <div id="modalC1Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q2" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC1Q2">Find the error(s) in the sentence(s).</h3>
+            </div>
+            <div class="modal-body">
+                <p>Kevin has 15 pens, 1 pencil, and 101 dog.</p>
+                <div class="accordion" id="accordionC1Q2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC1Q2" href="#collapseC1Q2">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC1Q2" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Kevin has 15 pens, 1 pencil, and 101 <span class="error-correction">dogs</span>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC1Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q3" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC1Q3">Surprise Video Question!</h3>
+            </div>
+            <div class="modal-body">
+                <p>What movie is this from?</p>
+                <div class="swf-video">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="480" height="360" id="Toy-Story-Video">
+                        <param name="movie" value="./Toy_Story_-_Official_Trailer_1_1995-KYz2wyBy3kc.swf">
+                        <!--[if !IE]>-->
+                        <object type="application/x-shockwave-flash" data="./Toy_Story_-_Official_Trailer_1_1995-KYz2wyBy3kc.swf" width="480" height="360">
+                        <!--<![endif]-->
+                            <a href="http://www.adobe.com/go/getflashplayer">
+                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
+                            </a>
+                        <!--[if !IE]>-->
+                        </object>
+                        <!--<![endif]-->
+                    </object>
+                </div>
+                <div class="accordion" id="accordionC1Q3">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC1Q3" href="#collapseC1Q3">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC1Q3" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Toy Story
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC1Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q4" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC1Q4">Find the error(s) in the sentence(s).</h3>
+            </div>
+            <div class="modal-body">
+                <p><strong>A:</strong> Which spaceship goes to the moon?</p>
+                <p><strong>B:</strong> Take spaceship number 3. It's by flowershop.</p>
+                <div class="accordion" id="accordionC1Q4">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC1Q4" href="#collapseC1Q4">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC1Q4" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p><strong>A:</strong> Which spaceship goes to the moon?</p>
+                                <p><strong>B:</strong> Take spaceship number 3. It's by <span class="error-correction">the</span> flowershop.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC1Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q5" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC1Q5">Find the error(s) in the sentence(s).</h3>
+            </div>
+            <div class="modal-body">
+                <p><strong>A:</strong> How long do it take to get to Tokyo?</p>
+                <p><strong>B:</strong> About 3 hour.</p>
+                <p class="hint">Hint: There are two errors.</p>
+                <div class="accordion" id="accordionC1Q5">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC1Q5" href="#collapseC1Q5">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC1Q5" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p><strong>A:</strong> How long <span class="error-correction">does</span> it take to get to Tokyo?</p>
+                                <p><strong>B:</strong> About 3 <span class="error-correction">hours</span>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC1Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q6" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC1Q6">Find the error(s) in the sentence(s).</h3>
+            </div>
+            <div class="modal-body">
+                <p><strong>A:</strong> Why do you like basketball?</p>
+                <p><strong>B:</strong> Because its fun.</p>
+                <div class="accordion" id="accordionC1Q6">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC1Q6" href="#collapseC1Q6">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC1Q6" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p><strong>A:</strong> Why do you like basketball?</p>
+                                <p><strong>B:</strong> Because <span class="error-correction">it's</span> fun.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC1Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q7" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC1Q7">Find the error(s) in the sentence(s).</h3>
+            </div>
+            <div class="modal-body">
+                <p><strong>Ms. Brown:</strong> Where is Ms. Green?</p>
+                <p><strong>Ichiro:</strong> She's at Japan.</p>
+                <p><strong>Ms. Brown:</strong> Oh, I see.</p>
+                <div class="accordion" id="accordionC1Q7">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC1Q7" href="#collapseC1Q7">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC1Q7" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p><strong>Ms. Brown:</strong> Where is Ms. Green?</p>
+                                <p><strong>Ichiro:</strong> She's <span class="error-correction">in</span> Japan.</p>
+                                <p><strong>Ms. Brown:</strong> Oh, I see.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <!-- [END] Category 1 Questions -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             [START] Category 2 Questions
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        -->
+        <div id="modalC2Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q1" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC2Q1">Rearrange these words to make a sentence.</h3>
+            </div>
+            <div class="modal-body">
+                <p>[?] [you] [makes] [what] [happy]</p>
+                <div class="accordion" id="accordionC2Q1">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC2Q1" href="#collapseC2Q1">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC2Q1" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                What makes you happy?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC2Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q2" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC2Q2">Rearrange these words to make a sentence.</h3>
+            </div>
+            <div class="modal-body">
+                <p>[.] [Friday] [Monday] [he] [better] [likes] [than]</p>
+                <div class="accordion" id="accordionC2Q2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC2Q2" href="#collapseC2Q2">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC2Q2" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>He likes Friday better than Monday.</p>
+                                <p>OR</p>
+                                <p>He likes Monday better than Friday.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC2Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q3" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC2Q3">Rearrange these words to make a sentence.</h3>
+            </div>
+            <div class="modal-body">
+                <p>[.] [fun] [English] [very] [studying] [is]</p>
+                <div class="accordion" id="accordionC2Q3">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC2Q3" href="#collapseC2Q3">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC2Q3" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Studying English is very fun.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC2Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q4" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC2Q4">Rearrange these words to make a sentence.</h3>
+            </div>
+            <div class="modal-body">
+                <p>[.] [fifteen] [school] [am] [go] [to] [to] [minutes] [in] [going] [I]</p>
+                <div class="accordion" id="accordionC2Q4">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC2Q4" href="#collapseC2Q4">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC2Q4" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                I am going to go to school in fifteen minutes.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC2Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q5" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC2Q5">Rearrange these words to make a sentence.</h3>
+            </div>
+            <div class="modal-body">
+                <p>[?] [Ms. Green] [did] [at] [see] [the] [you] [station]</p>
+                <div class="accordion" id="accordionC2Q5">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC2Q5" href="#collapseC2Q5">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC2Q5" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Did you see Ms. Green at the station?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC2Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q6" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC2Q6">Rearrange these words to make a sentence.</h3>
+            </div>
+            <div class="modal-body">
+                <p>[.] [let's] [free] [are] [you] [play] [if] [volleyball]</p>
+                <p class="hint">Hint: There is <strong>no</strong> comma [,]</p>
+                <div class="accordion" id="accordionC2Q6">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC2Q6" href="#collapseC2Q6">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC2Q6" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Let's play volleyball if you are free.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC2Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q7" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC2Q7">Rearrange these words to make a sentence.</h3>
+            </div>
+            <div class="modal-body">
+                <p>[.] [elementary school] [junior high school] [Mondays] [teach]</p>
+                <p>[at] [on] [the] [the] [go] [has] [to] [to] [Mr. Cheng] [he]</p>
+                <p>[because] [doesn't]</p>
+                <div class="accordion" id="accordionC2Q7">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC2Q7" href="#collapseC2Q7">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC2Q7" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>Mr. Cheng doesn't go to the junior high school on Mondays</p>
+                                <p>because he has to teach at the elementary school.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <!-- [END] Category 2 Questions -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             [START] Category 3 Questions
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        -->
+        <div id="modalC3Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q1" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC3Q1">Who am I?</h3>
+            </div>
+            <div class="modal-body">
+                <p class="who-am-i">I'm a robot.</p>
+                <p class="who-am-i">I'm a cat.</p>
+                <p class="who-am-i">I have a special pocket.</p>
+                <div class="accordion" id="accordionC3Q1">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC3Q1" href="#collapseC3Q1">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC3Q1" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>Doraemon</p>
+                                <!--<img src="../../1swi3Qy.png" alt="" />-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC3Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q2" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC3Q2">Who am I?</h3>
+            </div>
+            <div class="modal-body">
+                <p class="who-am-i">I'm a mouse.</p>
+                <p class="who-am-i">I can make lightning.</p>
+                <p class="who-am-i">I am yellow.</p>
+                <div class="accordion" id="accordionC3Q2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC3Q2" href="#collapseC3Q2">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC3Q2" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>Pikachu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC3Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q3" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC3Q3">Who am I?</h3>
+            </div>
+            <div class="modal-body">
+                <p class="who-am-i">I'm a plumber.</p>
+                <p class="who-am-i">Eating mushrooms makes me taller.</p>
+                <p class="who-am-i">I like red.</p>
+                <div class="accordion" id="accordionC3Q3">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC3Q3" href="#collapseC3Q3">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC3Q3" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>Mario</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC3Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q4" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC3Q4">Surprise Video Question!</h3>
+            </div>
+            <div class="modal-body">
+                <!--
+                <p class="who-am-i">I'm an elf.</p>
+                <p class="who-am-i">I wear a green hat.</p>
+                <p class="who-am-i">I can use a sword well.</p>
+                -->
+                <p>What movie is this from?</p>
+                <div class="swf-video">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="360" id="Spirited-Away-Video">
+                        <param name="movie" value="./Spirited_Away_Trailer-LQ-_jGXcSBcvQQ.swf">
+                        <!--[if !IE]>-->
+                        <object type="application/x-shockwave-flash" data="./Spirited_Away_Trailer-LQ-_jGXcSBcvQQ.swf" width="640" height="360">
+                        <!--<![endif]-->
+                            <a href="http://www.adobe.com/go/getflashplayer">
+                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
+                            </a>
+                        <!--[if !IE]>-->
+                        </object>
+                        <!--<![endif]-->
+                    </object>
+                </div>
+                <div class="accordion" id="accordionC3Q4">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC3Q4" href="#collapseC3Q4">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC3Q4" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <!--Link-->
+                                <p>Spirited Away</p>
+                                <p>千と千尋の神隠し</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC3Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q5" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC3Q5">Who am I?</h3>
+            </div>
+            <div class="modal-body">
+                <p class="who-am-i">I like to sing.</p>
+                <p class="who-am-i">I was born in 1952.</p>
+                <p class="who-am-i">I'm blind.</p>
+                <div class="accordion" id="accordionC3Q5">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC3Q5" href="#collapseC3Q5">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC3Q5" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>Aragaki Tsutomu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC3Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q6" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC3Q6">Who am I?</h3>
+            </div>
+            <div class="modal-body">
+                <p class="who-am-i">I am strong and like to eat.</p>
+                <p class="who-am-i">I have two sons.</p>
+                <p class="who-am-i">I usually have black hair but sometimes have yellow hair.</p>
+                <div class="accordion" id="accordionC3Q6">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC3Q6" href="#collapseC3Q6">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC3Q6" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>Son Goku</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC3Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q7" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC3Q7">Who am I?</h3>
+            </div>
+            <div class="modal-body">
+                <p class="who-am-i">I live in Gotham City.</p>
+                <p class="who-am-i">I fight crime everyday.</p>
+                <p class="who-am-i">I am very rich.</p>
+                <div class="accordion" id="accordionC3Q7">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC3Q7" href="#collapseC3Q7">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC3Q7" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>Batman</p>
+                                <p>OR</p>
+                                <p>Bruce Wayne</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <!-- [END] Category 3 Questions -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             [START] Category 4 Questions
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        -->
+        <div id="modalC4Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q1" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC4Q1">Fill in the blanks with the correct word(s).</h3>
+            </div>
+            <div class="modal-body">
+                <p>It's a magic box. ______ a wish and you can get ______.</p>
+                <div class="accordion" id="accordionC4Q1">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC4Q1" href="#collapseC4Q1">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC4Q1" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                It's a magic box. <span class="fill-in-the-blank">Make</span> a wish and you can get <span class="fill-in-the-blank">anything</span>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC4Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q2" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC4Q2">Fill in the blanks with the correct word(s).</h3>
+            </div>
+            <div class="modal-body">
+                <p>Mount Everest is the _______ mountain in the world.</p>
+                <div class="accordion" id="accordionC4Q2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC4Q2" href="#collapseC4Q2">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC4Q2" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Mount Everest is the <span class="fill-in-the-blank">tallest</span> mountain in the world.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC4Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q3" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC4Q3">Fill in the blanks with the correct word(s).</h3>
+            </div>
+            <div class="modal-body">
+                <p>Italy is ______ than Russia.</p>
+                <div class="accordion" id="accordionC4Q3">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC4Q3" href="#collapseC4Q3">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC4Q3" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Italy is <span class="fill-in-the-blank">smaller</span> than Russia.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC4Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q4" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC4Q4">Fill in the blanks with the correct word(s).</h3>
+            </div>
+            <div class="modal-body">
+                <p>Could you ______ me ______ to get to Hanamichi?</p>
+                <div class="accordion" id="accordionC4Q4">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC4Q4" href="#collapseC4Q4">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC4Q4" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Could you <span class="fill-in-the-blank">tell</span> me <span class="fill-in-the-blank">how</span> to get to Hanamichi?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC4Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q5" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC4Q5">Fill in the blanks with the correct word(s).</h3>
+            </div>
+            <div class="modal-body">
+                <p>______ ______. Which train goes to New York City?</p>
+                <div class="accordion" id="accordionC4Q5">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC4Q5" href="#collapseC4Q5">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC4Q5" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <span class="fill-in-the-blank">Excuse me</span>. Which train goes to New York City?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC4Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q6" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC4Q6">Surprise Video Question!</h3>
+            </div>
+            <div class="modal-body">
+                <!--
+                <p>Playing ______ is fun because ____________.</p>
+                <p class="hint">Hint: Use a sentence after "because".</p>
+                -->
+                <p>What movie is this from?</p>
+                <div class="swf-video">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="272" id="LotR-Video">
+                        <param name="movie" value="./The_Lord_of_the_Rings_-_The_Fellowship_of_the_Ring_-_Official_Trailer_2001-VIgkpEgCV-I.swf">
+                        <!--[if !IE]>-->
+                        <object type="application/x-shockwave-flash" data="./The_Lord_of_the_Rings_-_The_Fellowship_of_the_Ring_-_Official_Trailer_2001-VIgkpEgCV-I.swf" width="640" height="272">
+                        <!--<![endif]-->
+                            <a href="http://www.adobe.com/go/getflashplayer">
+                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
+                            </a>
+                        <!--[if !IE]>-->
+                        </object>
+                        <!--<![endif]-->
+                    </object>
+                </div>
+                <div class="accordion" id="accordionC4Q6">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC4Q6" href="#collapseC4Q6">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC4Q6" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <!--
+                                Playing <span class="fill-in-the-blank">[noun]</span> is fun because <span class="fill-in-the-blank">[reason (sentence)]</span>.
+                                -->
+                                The Lord of the Rings: The Fellowship of the Ring
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC4Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q7" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC4Q7">Fill in the blanks with the correct word(s).</h3>
+            </div>
+            <div class="modal-body">
+                <p>My favorite ______ is ______ because ____________.</p>
+                <p class="hint">Hint: Use a sentence after "because".</p>
+                <div class="accordion" id="accordionC4Q7">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC4Q7" href="#collapseC4Q7">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC4Q7" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                My favorite <span class="fill-in-the-blank">[noun]</span> is <span class="fill-in-the-blank">[noun]</span> because <span class="fill-in-the-blank">[reason (sentence)]</span>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <!-- [END] Category 4 Questions -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             [START] Category 5 Questions
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        -->
+        <div id="modalC5Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q1" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC5Q1">What other word(s) sounds like ~ ? Spell it.</h3>
+            </div>
+            <div class="modal-body">
+                <p>ate</p>
+                <div class="accordion" id="accordionC5Q1">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC5Q1" href="#collapseC5Q1">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC5Q1" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                eight
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC5Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q2" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC5Q2">What other word(s) sounds like ~ ? Spell it.</h3>
+            </div>
+            <div class="modal-body">
+                <p>red</p>
+                <div class="accordion" id="accordionC5Q2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC5Q2" href="#collapseC5Q2">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC5Q2" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                read
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC5Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q3" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC5Q3">What other word(s) sounds like ~ ? Spell it.</h3>
+            </div>
+            <div class="modal-body">
+                <p>here</p>
+                <div class="accordion" id="accordionC5Q3">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC5Q3" href="#collapseC5Q3">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC5Q3" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                hear
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC5Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q4" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC5Q4">What other word(s) sounds like ~ ? Spell it.</h3>
+            </div>
+            <div class="modal-body">
+                <p>right</p>
+                <div class="accordion" id="accordionC5Q4">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC5Q4" href="#collapseC5Q4">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC5Q4" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                write
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC5Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q5" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC5Q5">What other word(s) sounds like ~ ? Spell it.</h3>
+            </div>
+            <div class="modal-body">
+                <p>to</p>
+                <p class="hint">Hint: There are two answers.</p>
+                <div class="accordion" id="accordionC5Q5">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC5Q5" href="#collapseC5Q5">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC5Q5" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>too</p>
+                                <p>two</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC5Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q6" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC5Q6">What other word(s) sounds like ~ ? Spell it.</h3>
+            </div>
+            <div class="modal-body">
+                <p>buy</p>
+                <p class="hint">Hint: There are two answers.</p>
+                <div class="accordion" id="accordionC5Q6">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC5Q6" href="#collapseC5Q6">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC5Q6" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>by</p>
+                                <p>bye</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC5Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q7" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC5Q7">What other word(s) sounds like ~ ? Spell it.</h3>
+            </div>
+            <div class="modal-body">
+                <p>there</p>
+                <p class="hint">Hint: There are two answers.</p>
+                <div class="accordion" id="accordionC5Q7">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC5Q7" href="#collapseC5Q7">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC5Q7" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p>their</p>
+                                <p>they're</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <!-- [END] Category 5 Questions -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             [START] Category 6 Questions
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        -->
+        <div id="modalC6Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q1" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC6Q1">Science Question</h3>
+            </div>
+            <div class="modal-body">
+                <p>What is <strong>NaCl</strong> in English?</p>
+                <div class="accordion" id="accordionC6Q1">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC6Q1" href="#collapseC6Q1">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC6Q1" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                salt
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC6Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q2" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC6Q2">Math Question</h3>
+            </div>
+            <div class="modal-body">
+                <p>What is <strong>C</strong>?</p>
+                <img src="5-12-13-right-triangle.png" class="question-image" />
+                <div class="accordion" id="accordionC6Q2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC6Q2" href="#collapseC6Q2">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC6Q2" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                13
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC6Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q3" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC6Q3">Art Question</h3>
+            </div>
+            <div class="modal-body">
+                <p>When you mix <span class="color-box" style="background-color: yellow;">yellow</span> and <span class="color-box" style="background-color: red;">red</span>, what color do you get?</p>
+                <div class="accordion" id="accordionC6Q3">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC6Q3" href="#collapseC6Q3">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC6Q3" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <span class="color-box" style="background-color: orange;">Orange</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC6Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q4" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC6Q4">Surprise Video Question<!--Video Game Question--></h3>
+            </div>
+            <div class="modal-body">
+                <!--
+                <p>What is the name of the hero in Final Fantasy VII?</p>
+                <p class="hint">Hint: He has yellow hair and uses a very big sword.</p>
+                -->
+                <p>What movie is this from?</p>
+                <div class="swf-video">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="480" id="Tokyo-Godfathers-Video">
+                        <param name="movie" value="./Tokyo_Godfathers_Trailer-7Q6mcx2qF4Q.swf">
+                        <!--[if !IE]>-->
+                        <object type="application/x-shockwave-flash" data="./Tokyo_Godfathers_Trailer-7Q6mcx2qF4Q.swf" width="640" height="480">
+                        <!--<![endif]-->
+                            <a href="http://www.adobe.com/go/getflashplayer">
+                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
+                            </a>
+                        <!--[if !IE]>-->
+                        </object>
+                        <!--<![endif]-->
+                    </object>
+                </div>
+
+                <div class="accordion" id="accordionC6Q4">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC6Q4" href="#collapseC6Q4">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC6Q4" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <!--
+                                <p>Cloud Strife</p>
+                                <p>クラウド・ストライフ</p>
+                                -->
+                                <p>Tokyo Godfathers</p>
+                                <p>東京ゴッドファーザーズ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC6Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q5" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC6Q5">Geography Question</h3>
+            </div>
+            <div class="modal-body">
+                <p>What is the capital of Italy?</p>
+                <p class="hint">Hint: The capital of Japan is Tokyo.</p>
+                <div class="accordion" id="accordionC6Q5">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC6Q5" href="#collapseC6Q5">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC6Q5" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Rome
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC6Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q6" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC6Q6">Computer Science Question</h3>
+            </div>
+            <div class="modal-body">
+                <p>On a keyboard, what letter is to the <em>right</em> of the <strong>J</strong> key?</p>
+                <p class="hint">Hint: It comes next in the alphabet.</p>
+                <div class="accordion" id="accordionC6Q6">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC6Q6" href="#collapseC6Q6">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC6Q6" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                K
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC6Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q7" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC6Q7">Social Studies Question</h3>
+            </div>
+            <div class="modal-body">
+                <p>Put these in order from earliest to latest:</p>
+                <p><strong>(A)</strong> Nara period - 奈良時代</p>
+                <p><strong>(B)</strong> Kamakura period - 鎌倉時代</p>
+                <p><strong>(C)</strong> Kofun period - 古墳時代</p>
+                <div class="accordion" id="accordionC6Q7">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC6Q7" href="#collapseC6Q7">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC6Q7" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <p><strong>(C)</strong> Kofun period - 古墳時代 - AD 250 to 538 (about)</p>
+                                <p><strong>(A)</strong> Nara period - 奈良時代 - AD 710 to 794</p>
+                                <p><strong>(B)</strong> Kamakura period - 鎌倉時代 - AD 1185 to 1333</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <!-- [END] Category 6 Questions -->
+
+
+
+
+
+        <!-- TEMPLATE for Category Question Modals
+             Simply replace all instances of C# to get a set of 7 modal questions.
+        <div id="modalC#Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q1" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC#Q1">Who am I?</h3>
+            </div>
+            <div class="modal-body">
+                <p>The Question</p>
+                <div class="accordion" id="accordionC#Q1">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC#Q1" href="#collapseC#Q1">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC#Q1" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Anim pariatur cliche...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC#Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q2" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC#Q2">Who am I?</h3>
+            </div>
+            <div class="modal-body">
+                <p>The Question</p>
+                <div class="accordion" id="accordionC#Q2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC#Q2" href="#collapseC#Q2">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC#Q2" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Anim pariatur cliche...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC#Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q3" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC#Q3">Who am I?</h3>
+            </div>
+            <div class="modal-body">
+                <p>The Question</p>
+                <div class="accordion" id="accordionC#Q3">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC#Q3" href="#collapseC#Q3">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC#Q3" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Anim pariatur cliche...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC#Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q4" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC#Q4">Who am I?</h3>
+            </div>
+            <div class="modal-body">
+                <p>The Question</p>
+                <div class="accordion" id="accordionC#Q4">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC#Q4" href="#collapseC#Q4">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC#Q4" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Anim pariatur cliche...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC#Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q5" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC#Q5">Who am I?</h3>
+            </div>
+            <div class="modal-body">
+                <p>The Question</p>
+                <div class="accordion" id="accordionC#Q5">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC#Q5" href="#collapseC#Q5">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC#Q5" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Anim pariatur cliche...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC#Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q6" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC#Q6">Who am I?</h3>
+            </div>
+            <div class="modal-body">
+                <p>The Question</p>
+                <div class="accordion" id="accordionC#Q6">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC#Q6" href="#collapseC#Q6">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC#Q6" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Anim pariatur cliche...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        <div id="modalC#Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q7" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="modalLabelC#Q7">Who am I?</h3>
+            </div>
+            <div class="modal-body">
+                <p>The Question</p>
+                <div class="accordion" id="accordionC#Q7">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionC#Q7" href="#collapseC#Q7">
+                                Answer
+                            </a>
+                        </div>
+                        <div id="collapseC#Q7" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                Anim pariatur cliche...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-1-score">Team 1</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-2-score">Team 2</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-3-score">Team 3</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-4-score">Team 4</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-5-score">Team 5</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true" value="team-6-score">Team 6</button>
+                <button class="btn btn-primary" data-dismiss="modal" value="no-score">Nobody</button>
+            </div>
+        </div>
+        
+        END OF TEMPLATE -->
+
+
+
+
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <!-- <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap-transition.js"></script>
+        <script src="assets/js/bootstrap-alert.js"></script>
+        <script src="assets/js/bootstrap-modal.js"></script>
+        <script src="assets/js/bootstrap-dropdown.js"></script>
+        <script src="assets/js/bootstrap-scrollspy.js"></script>
+        <script src="assets/js/bootstrap-tab.js"></script>
+        <script src="assets/js/bootstrap-tooltip.js"></script>
+        <script src="assets/js/bootstrap-popover.js"></script>
+        <script src="assets/js/bootstrap-button.js"></script>
+        <script src="assets/js/bootstrap-collapse.js"></script>
+        <script src="assets/js/bootstrap-carousel.js"></script>
+        <script src="assets/js/bootstrap-typeahead.js"></script>
+        <script src="assets/js/bootstrap-affix.js"></script>
+        <script src="assets/js/holder/holder.js"></script>
+        <script src="assets/js/google-code-prettify/prettify.js"></script>
+        <script src="assets/js/application.js"></script>
+
+
+
+        <!-- Custom jQuery code for handling team scores. -->
+        <script type="text/javascript">
+            window.onload = function() {
+                var points = 0;
+            }
+            
+            function updateScore(team) {
+                $("#team-1-score").css('background-color', '#D5D6D6');
+                $("#team-2-score").css('background-color', '#D5D6D6');
+                $("#team-3-score").css('background-color', '#D5D6D6');
+                $("#team-4-score").css('background-color', '#D5D6D6');
+                $("#team-5-score").css('background-color', '#D5D6D6');
+                $("#team-6-score").css('background-color', '#D5D6D6');
+                if (team != "no-score") {
+                    $("#" + team).text(parseInt($("#" + team).text(), 10) + points);
+                    $("#" + team).css('background-color', '#4AF216');
+                }
+            }
+
+            $("a.question").click(function(event) {
+                points = parseInt($(this).text(), 10);
+
+                event.preventDefault(); /* not sure what this line does, but it was in the demo. works fine without the line. */
+                $(this).hide("slow");
+                $(this).parent().css('height', '46px');
+            });
+
+            $("button").click(function(event) {
+                updateScore($(this).attr("value"));
+            });
+
+            /*
+            $(document).ready(function(){
+                $("button").click(function() {
+                    if ($(this).attr("value") != "no-score") {
+                        $("#" + $(this).attr("value")).text(parseInt($("#" + $(this).attr("value")).text(), 10) + points);
+                    }
+                });
+            });
+            */
+
+        </script>
+    </body>
+</html>
