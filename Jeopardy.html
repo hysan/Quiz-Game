@@ -160,7 +160,7 @@
             text-align: center;
             font-size: 30px;
             padding: 10px 0px;
-            line-height: 36px;
+            /* line-height: 36px;*/
         }
         .accordion-inner {
             text-align: center;
@@ -241,6 +241,16 @@
             background-color: #FE2E2E;
             border: 3px solid #FE2E2E;
         }
+        p.quote {
+            color: #8904B1;
+            font-style: italic;
+        }
+        .subscript {
+            font-size: 18px;
+        }
+        img.pic-as-text {
+            height: 30px;
+        }
         </style>
 
         <script type="text/javascript" src="swfobject/swfobject.js"></script>
@@ -309,10 +319,10 @@
             <!-- Category Headings -->
             <div class="row text-center">
                 <div class="span2 topic"><h2>What's wrong?</h2></div>
-                <div class="span2 topic"><h2>Make a sentence</h2></div>
+                <div class="span2 topic"><h2>Q&A</h2></div>
                 <div class="span2 topic"><h2>Who am I?</h2></div>
                 <div class="span2 topic"><h2>Fill in the blank</h2></div>
-                <div class="span2 topic"><h2>Sounds like...</h2></div>
+                <div class="span2 topic"><h2>Definitions</h2></div>
                 <div class="span2 topic"><h2>Other Subjects</h2></div>
             </div>
             <!-- Question 1 -->
@@ -422,7 +432,8 @@
                 <h3 id="modalLabelC1Q1">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p>Do you study math last night?</p>
+                <p>He speak English well.</p>
+                <p class="hint">Hint: 1 mistake.</p>
 
                 <!-- http://stackoverflow.com/questions/9419470/how-do-i-get-my-accordion-to-load-with-all-the-menus-closed
                 To have accordian collapsed by default, remove class "in". Include the class to open by default. -->
@@ -435,7 +446,7 @@
                         </div>
                         <div id="collapseC1Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <span class="error-correction">Did</span> you study math last night?
+                                He <span class="error-correction">speaks</span> English well?
                             </div>
                         </div>
                     </div>
@@ -460,7 +471,8 @@
                 <h3 id="modalLabelC1Q2">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p>Kevin has 15 pens, 1 pencil, and 101 dog.</p>
+                <p>Stitch is eat lunch.</p>
+                <p class="hint">Hint: 1 mistake.</p>
                 <div class="accordion" id="accordionC1Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -470,7 +482,7 @@
                         </div>
                         <div id="collapseC1Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Kevin has 15 pens, 1 pencil, and 101 <span class="error-correction">dogs</span>.
+                                Stitch is <span class="error-correction">eating</span> lunch.
                             </div>
                         </div>
                     </div>
@@ -489,24 +501,11 @@
         <div id="modalC1Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q3" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC1Q3">Surprise Video Question!</h3>
+                <h3 id="modalLabelC1Q3">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p>What movie is this from?</p>
-                <div class="swf-video">
-                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="480" height="360" id="Toy-Story-Video">
-                        <param name="movie" value="./Toy_Story_-_Official_Trailer_1_1995-KYz2wyBy3kc.swf">
-                        <!--[if !IE]>-->
-                        <object type="application/x-shockwave-flash" data="./Toy_Story_-_Official_Trailer_1_1995-KYz2wyBy3kc.swf" width="480" height="360">
-                        <!--<![endif]-->
-                            <a href="http://www.adobe.com/go/getflashplayer">
-                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
-                            </a>
-                        <!--[if !IE]>-->
-                        </object>
-                        <!--<![endif]-->
-                    </object>
-                </div>
+                <p>Luigi is taller Mario.</p>
+                <p class="hint">Hint: 1 mistake.</p>
                 <div class="accordion" id="accordionC1Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -516,7 +515,7 @@
                         </div>
                         <div id="collapseC1Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Toy Story
+                                Luigi is taller <span class="error-correction">than</span> Mario.
                             </div>
                         </div>
                     </div>
@@ -538,8 +537,8 @@
                 <h3 id="modalLabelC1Q4">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p><strong>A:</strong> Which spaceship goes to the moon?</p>
-                <p><strong>B:</strong> Take spaceship number 3. It's by flowershop.</p>
+                <p>Mr. Cheng have ate rice for 28 years.</p>
+                <p class="hint">Hint: 2 mistakes.</p>
                 <div class="accordion" id="accordionC1Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -549,8 +548,7 @@
                         </div>
                         <div id="collapseC1Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p><strong>A:</strong> Which spaceship goes to the moon?</p>
-                                <p><strong>B:</strong> Take spaceship number 3. It's by <span class="error-correction">the</span> flowershop.</p>
+                                Mr. Cheng <span class="error-correction">has</span> <span class="error-correction">eaten</span> rice for 28 years.
                             </div>
                         </div>
                     </div>
@@ -572,9 +570,9 @@
                 <h3 id="modalLabelC1Q5">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p><strong>A:</strong> How long do it take to get to Tokyo?</p>
-                <p><strong>B:</strong> About 3 hour.</p>
-                <p class="hint">Hint: There are two errors.</p>
+                <p><strong>A:</strong> Are orange orange?</p>
+                <p><strong>B:</strong> Yes, they aren't.</p>
+                <p class="hint">Hint: 2 mistakes.</p>
                 <div class="accordion" id="accordionC1Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -584,8 +582,8 @@
                         </div>
                         <div id="collapseC1Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p><strong>A:</strong> How long <span class="error-correction">does</span> it take to get to Tokyo?</p>
-                                <p><strong>B:</strong> About 3 <span class="error-correction">hours</span>.</p>
+                                <p><strong>A:</strong> Are <span class="error-correction">oranges</span> orange?</p>
+                                <p><strong>B:</strong> Yes, they <span class="error-correction">are</span>.</p>
                             </div>
                         </div>
                     </div>
@@ -607,8 +605,10 @@
                 <h3 id="modalLabelC1Q6">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p><strong>A:</strong> Why do you like basketball?</p>
-                <p><strong>B:</strong> Because its fun.</p>
+                <p><strong>A:</strong> Did you see game last night?</p>
+                <p><strong>B:</strong> No, I don't. I am busy.</p>
+                <p><strong>A:</strong> That's too bad.</p>
+                <p class="hint">Hint: 3 mistakes.</p>
                 <div class="accordion" id="accordionC1Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -618,8 +618,9 @@
                         </div>
                         <div id="collapseC1Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p><strong>A:</strong> Why do you like basketball?</p>
-                                <p><strong>B:</strong> Because <span class="error-correction">it's</span> fun.</p>
+                                <p><strong>A:</strong> Did you see <span class="error-correction">the</span> game last night?</p>
+                                <p><strong>B:</strong> No, I <span class="error-correction">didn't</span>. I <span class="error-correction">was</span> busy.</p>
+                                <p><strong>A:</strong> That's too bad.</p>
                             </div>
                         </div>
                     </div>
@@ -641,9 +642,11 @@
                 <h3 id="modalLabelC1Q7">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p><strong>Ms. Brown:</strong> Where is Ms. Green?</p>
-                <p><strong>Ichiro:</strong> She's at Japan.</p>
-                <p><strong>Ms. Brown:</strong> Oh, I see.</p>
+                <p><strong>A:</strong> Shall we get lunch?</p>
+                <p><strong>B:</strong> Sure. Where do you want eat?</p>
+                <p><strong>A:</strong> How about Tres Bien.</p>
+                <p><strong>B:</strong> OK. That sound good.</p>
+                <p class="hint">Hint: 3 mistakes.</p>
                 <div class="accordion" id="accordionC1Q7">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -653,9 +656,10 @@
                         </div>
                         <div id="collapseC1Q7" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p><strong>Ms. Brown:</strong> Where is Ms. Green?</p>
-                                <p><strong>Ichiro:</strong> She's <span class="error-correction">in</span> Japan.</p>
-                                <p><strong>Ms. Brown:</strong> Oh, I see.</p>
+                                <p><strong>A:</strong> Shall we get lunch?</p>
+                                <p><strong>B:</strong> Sure. Where do you want <span class="error-correction">to</span> eat?</p>
+                                <p><strong>A:</strong> How about Tres Bien<span class="error-correction">?</span></p>
+                                <p><strong>B:</strong> OK. That <span class="error-correction">sounds</span> good.</p>
                             </div>
                         </div>
                     </div>
@@ -684,10 +688,10 @@
         <div id="modalC2Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q1" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC2Q1">Rearrange these words to make a sentence.</h3>
+                <h3 id="modalLabelC2Q1">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>[?] [you] [makes] [what] [happy]</p>
+                <p>What's the day today?</p>
                 <div class="accordion" id="accordionC2Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -697,7 +701,7 @@
                         </div>
                         <div id="collapseC2Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                What makes you happy?
+                                It's Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
                             </div>
                         </div>
                     </div>
@@ -716,10 +720,10 @@
         <div id="modalC2Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q2" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC2Q2">Rearrange these words to make a sentence.</h3>
+                <h3 id="modalLabelC2Q2">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>[.] [Friday] [Monday] [he] [better] [likes] [than]</p>
+                <p>How does Mr. Cheng usually come to school?</p>
                 <div class="accordion" id="accordionC2Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -729,9 +733,9 @@
                         </div>
                         <div id="collapseC2Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>He likes Friday better than Monday.</p>
+                                <p>He usually comes to school on foot (by walking).</p>
                                 <p>OR</p>
-                                <p>He likes Monday better than Friday.</p>
+                                <p>He usually walks to school.</p>
                             </div>
                         </div>
                     </div>
@@ -750,10 +754,10 @@
         <div id="modalC2Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q3" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC2Q3">Rearrange these words to make a sentence.</h3>
+                <h3 id="modalLabelC2Q3">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>[.] [fun] [English] [very] [studying] [is]</p>
+                <p>Which do you like better, Disney movies or Studio Ghibli movies?</p>
                 <div class="accordion" id="accordionC2Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -763,7 +767,7 @@
                         </div>
                         <div id="collapseC2Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Studying English is very fun.
+                                I like ~ better than ~.
                             </div>
                         </div>
                     </div>
@@ -782,7 +786,7 @@
         <div id="modalC2Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q4" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC2Q4">Rearrange these words to make a sentence.</h3>
+                <h3 id="modalLabelC2Q4">Question & Answer</h3>
             </div>
             <div class="modal-body">
                 <p>[.] [fifteen] [school] [am] [go] [to] [to] [minutes] [in] [going] [I]</p>
@@ -814,10 +818,10 @@
         <div id="modalC2Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q5" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC2Q5">Rearrange these words to make a sentence.</h3>
+                <h3 id="modalLabelC2Q5">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>[?] [Ms. Green] [did] [at] [see] [the] [you] [station]</p>
+                <p>Tell me 3 question words that begin with "wh".</p>
                 <div class="accordion" id="accordionC2Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -827,7 +831,7 @@
                         </div>
                         <div id="collapseC2Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Did you see Ms. Green at the station?
+                                who, what, where, when, why, which, whose
                             </div>
                         </div>
                     </div>
@@ -846,11 +850,10 @@
         <div id="modalC2Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q6" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC2Q6">Rearrange these words to make a sentence.</h3>
+                <h3 id="modalLabelC2Q6">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>[.] [let's] [free] [are] [you] [play] [if] [volleyball]</p>
-                <p class="hint">Hint: There is <strong>no</strong> comma [,]</p>
+                <p>If a sentence starts with "how many", then what must be at the end of the sentence?</p>
                 <div class="accordion" id="accordionC2Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -860,7 +863,7 @@
                         </div>
                         <div id="collapseC2Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Let's play volleyball if you are free.
+                                a question mark (?)
                             </div>
                         </div>
                     </div>
@@ -879,12 +882,12 @@
         <div id="modalC2Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q7" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC2Q7">Rearrange these words to make a sentence.</h3>
+                <h3 id="modalLabelC2Q7">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>[.] [elementary school] [junior high school] [Mondays] [teach]</p>
-                <p>[at] [on] [the] [the] [go] [has] [to] [to] [Mr. Cheng] [he]</p>
-                <p>[because] [doesn't]</p>
+                <p>What is a similar saying to this in Japanese?</p>
+                <p class="quote">When the cat's away, the mice will play.</p>
+                <p class="hint">Hint: See the back of your textbook.</p>
                 <div class="accordion" id="accordionC2Q7">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -894,8 +897,7 @@
                         </div>
                         <div id="collapseC2Q7" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>Mr. Cheng doesn't go to the junior high school on Mondays</p>
-                                <p>because he has to teach at the elementary school.</p>
+                                鬼のいぬ間に洗濯。
                             </div>
                         </div>
                     </div>
@@ -927,9 +929,9 @@
                 <h3 id="modalLabelC3Q1">Who am I?</h3>
             </div>
             <div class="modal-body">
-                <p class="who-am-i">I'm a robot.</p>
-                <p class="who-am-i">I'm a cat.</p>
-                <p class="who-am-i">I have a special pocket.</p>
+                <p class="who-am-i">I can use magic.</p>
+                <p class="who-am-i">I go to a special school for magicians.</p>
+                <p class="who-am-i">I can fly on a broom very well.</p>
                 <div class="accordion" id="accordionC3Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -939,7 +941,7 @@
                         </div>
                         <div id="collapseC3Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>Doraemon</p>
+                                <p>Harry Potter</p>
                                 <!--<img src="../../1swi3Qy.png" alt="" />-->
                             </div>
                         </div>
@@ -962,9 +964,9 @@
                 <h3 id="modalLabelC3Q2">Who am I?</h3>
             </div>
             <div class="modal-body">
-                <p class="who-am-i">I'm a mouse.</p>
-                <p class="who-am-i">I can make lightning.</p>
-                <p class="who-am-i">I am yellow.</p>
+                <p class="who-am-i">I am delicious.</p>
+                <p class="who-am-i">I am a hero of justice.</p>
+                <p class="who-am-i">I have a red nose.</p>
                 <div class="accordion" id="accordionC3Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -974,7 +976,7 @@
                         </div>
                         <div id="collapseC3Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>Pikachu</p>
+                                <p>Anpanman</p>
                             </div>
                         </div>
                     </div>
@@ -996,9 +998,9 @@
                 <h3 id="modalLabelC3Q3">Who am I?</h3>
             </div>
             <div class="modal-body">
-                <p class="who-am-i">I'm a plumber.</p>
-                <p class="who-am-i">Eating mushrooms makes me taller.</p>
-                <p class="who-am-i">I like red.</p>
+                <p class="who-am-i">I am a white duck.</p>
+                <p class="who-am-i">I wear a hat and shirt, but I don't wear pants.</p>
+                <p class="who-am-i">I get angry very quickly.</p>
                 <div class="accordion" id="accordionC3Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1008,7 +1010,7 @@
                         </div>
                         <div id="collapseC3Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>Mario</p>
+                                <p>Donald Duck</p>
                             </div>
                         </div>
                     </div>
@@ -1083,9 +1085,9 @@
                 <h3 id="modalLabelC3Q5">Who am I?</h3>
             </div>
             <div class="modal-body">
-                <p class="who-am-i">I like to sing.</p>
-                <p class="who-am-i">I was born in 1952.</p>
-                <p class="who-am-i">I'm blind.</p>
+                <p class="who-am-i">I am a scientist.</p>
+                <p class="who-am-i">When I am angry, I turn into a big green monster.</p>
+                <p class="who-am-i">I am very strong.</p>
                 <div class="accordion" id="accordionC3Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1095,7 +1097,7 @@
                         </div>
                         <div id="collapseC3Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>Aragaki Tsutomu</p>
+                                <p>Hulk (aka: Bruce Banner)</p>
                             </div>
                         </div>
                     </div>
@@ -1117,9 +1119,9 @@
                 <h3 id="modalLabelC3Q6">Who am I?</h3>
             </div>
             <div class="modal-body">
-                <p class="who-am-i">I am strong and like to eat.</p>
-                <p class="who-am-i">I have two sons.</p>
-                <p class="who-am-i">I usually have black hair but sometimes have yellow hair.</p>
+                <p class="who-am-i">I went to New Zealand.</p>
+                <p class="who-am-i">Ms. Brown teaches me English.</p>
+                <p class="who-am-i">I'm from Japan.</p>
                 <div class="accordion" id="accordionC3Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1129,7 +1131,7 @@
                         </div>
                         <div id="collapseC3Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>Son Goku</p>
+                                <p>Okada Ichiro</p>
                             </div>
                         </div>
                     </div>
@@ -1151,9 +1153,9 @@
                 <h3 id="modalLabelC3Q7">Who am I?</h3>
             </div>
             <div class="modal-body">
-                <p class="who-am-i">I live in Gotham City.</p>
-                <p class="who-am-i">I fight crime everyday.</p>
-                <p class="who-am-i">I am very rich.</p>
+                <p class="who-am-i">I am a detective.</p>
+                <p class="who-am-i">I'm from London.</p>
+                <p class="who-am-i">My best friend is Watson.</p>
                 <div class="accordion" id="accordionC3Q7">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1163,9 +1165,7 @@
                         </div>
                         <div id="collapseC3Q7" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>Batman</p>
-                                <p>OR</p>
-                                <p>Bruce Wayne</p>
+                                <p>Sherlock Holmes</p>
                             </div>
                         </div>
                     </div>
@@ -1197,7 +1197,7 @@
                 <h3 id="modalLabelC4Q1">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <p>It's a magic box. ______ a wish and you can get ______.</p>
+                <p>Is that ______ apple?</p>
                 <div class="accordion" id="accordionC4Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1207,7 +1207,7 @@
                         </div>
                         <div id="collapseC4Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                It's a magic box. <span class="fill-in-the-blank">Make</span> a wish and you can get <span class="fill-in-the-blank">anything</span>.
+                                Is that <span class="fill-in-the-blank">an</span> apple?
                             </div>
                         </div>
                     </div>
@@ -1229,7 +1229,7 @@
                 <h3 id="modalLabelC4Q2">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <p>Mount Everest is the _______ mountain in the world.</p>
+                <p>How ______ homeruns did you hit?</p>
                 <div class="accordion" id="accordionC4Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1239,7 +1239,7 @@
                         </div>
                         <div id="collapseC4Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Mount Everest is the <span class="fill-in-the-blank">tallest</span> mountain in the world.
+                                How <span class="fill-in-the-blank">many</span> homeruns did you hit?
                             </div>
                         </div>
                     </div>
@@ -1261,7 +1261,7 @@
                 <h3 id="modalLabelC4Q3">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <p>Italy is ______ than Russia.</p>
+                <p>Stitch is a blue ______.</p>
                 <div class="accordion" id="accordionC4Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1271,7 +1271,7 @@
                         </div>
                         <div id="collapseC4Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Italy is <span class="fill-in-the-blank">smaller</span> than Russia.
+                                Stitch is a blue <span class="fill-in-the-blank">alien</span>.
                             </div>
                         </div>
                     </div>
@@ -1293,7 +1293,7 @@
                 <h3 id="modalLabelC4Q4">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <p>Could you ______ me ______ to get to Hanamichi?</p>
+                <p>I think ______ studying English ______ very fun.</p>
                 <div class="accordion" id="accordionC4Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1303,7 +1303,7 @@
                         </div>
                         <div id="collapseC4Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Could you <span class="fill-in-the-blank">tell</span> me <span class="fill-in-the-blank">how</span> to get to Hanamichi?
+                                I think <span class="fill-in-the-blank">that</span> studying English <span class="fill-in-the-blank">is/isn't</span> very fun.
                             </div>
                         </div>
                     </div>
@@ -1325,7 +1325,7 @@
                 <h3 id="modalLabelC4Q5">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <p>______ ______. Which train goes to New York City?</p>
+                <p>He ______ to clean his room ______ it is very dirty.</p>
                 <div class="accordion" id="accordionC4Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1335,7 +1335,7 @@
                         </div>
                         <div id="collapseC4Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <span class="fill-in-the-blank">Excuse me</span>. Which train goes to New York City?
+                                He <span class="fill-in-the-blank">has</span> to clean his room <span class="fill-in-the-blank">because</span> it is very dirty.
                             </div>
                         </div>
                     </div>
@@ -1354,28 +1354,11 @@
         <div id="modalC4Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q6" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q6">Surprise Video Question!</h3>
+                <h3 id="modalLabelC4Q6">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <!--
-                <p>Playing ______ is fun because ____________.</p>
-                <p class="hint">Hint: Use a sentence after "because".</p>
-                -->
-                <p>What movie is this from?</p>
-                <div class="swf-video">
-                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="272" id="LotR-Video">
-                        <param name="movie" value="./The_Lord_of_the_Rings_-_The_Fellowship_of_the_Ring_-_Official_Trailer_2001-VIgkpEgCV-I.swf">
-                        <!--[if !IE]>-->
-                        <object type="application/x-shockwave-flash" data="./The_Lord_of_the_Rings_-_The_Fellowship_of_the_Ring_-_Official_Trailer_2001-VIgkpEgCV-I.swf" width="640" height="272">
-                        <!--<![endif]-->
-                            <a href="http://www.adobe.com/go/getflashplayer">
-                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
-                            </a>
-                        <!--[if !IE]>-->
-                        </object>
-                        <!--<![endif]-->
-                    </object>
-                </div>
+                <p><strong>A:</strong> ______ ______ go to Disneyland ______ August twelfth?</p>
+                <p><strong>B:</strong> Sorry, you can't.</p>
                 <div class="accordion" id="accordionC4Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1385,10 +1368,8 @@
                         </div>
                         <div id="collapseC4Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <!--
-                                Playing <span class="fill-in-the-blank">[noun]</span> is fun because <span class="fill-in-the-blank">[reason (sentence)]</span>.
-                                -->
-                                The Lord of the Rings: The Fellowship of the Ring
+                                <p><strong>A:</strong> <span class="fill-in-the-blank">May I</span> go to Disneyland <span class="fill-in-the-blank">on</span> August twelfth?</p>
+                                <p><strong>B:</strong> Sorry, you can't.</p>
                             </div>
                         </div>
                     </div>
@@ -1410,8 +1391,7 @@
                 <h3 id="modalLabelC4Q7">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <p>My favorite ______ is ______ because ____________.</p>
-                <p class="hint">Hint: Use a sentence after "because".</p>
+                <p>I ______ have milk and cereal ______ breakfast, ______ today I had an onigiri.</p>
                 <div class="accordion" id="accordionC4Q7">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1421,7 +1401,7 @@
                         </div>
                         <div id="collapseC4Q7" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                My favorite <span class="fill-in-the-blank">[noun]</span> is <span class="fill-in-the-blank">[noun]</span> because <span class="fill-in-the-blank">[reason (sentence)]</span>.
+                                I <span class="fill-in-the-blank">usually</span> have milk and cereal <span class="fill-in-the-blank">for</span> breakfast, <span class="fill-in-the-blank">but</span> today I had an onigiri.
                             </div>
                         </div>
                     </div>
@@ -1450,10 +1430,10 @@
         <div id="modalC5Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q1" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q1">What other word(s) sounds like ~ ? Spell it.</h3>
+                <h3 id="modalLabelC5Q1">What word means ~ ? Spell it.</h3>
             </div>
             <div class="modal-body">
-                <p>ate</p>
+                <p>The day of the week between Tuesday and Thursday.</p>
                 <div class="accordion" id="accordionC5Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1463,7 +1443,7 @@
                         </div>
                         <div id="collapseC5Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                eight
+                                Wednesday
                             </div>
                         </div>
                     </div>
@@ -1482,10 +1462,10 @@
         <div id="modalC5Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q2" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q2">What other word(s) sounds like ~ ? Spell it.</h3>
+                <h3 id="modalLabelC5Q2">What word means ~ ? Spell it.</h3>
             </div>
             <div class="modal-body">
-                <p>red</p>
+                <p>The eleventh month of the year.</p>
                 <div class="accordion" id="accordionC5Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1495,7 +1475,7 @@
                         </div>
                         <div id="collapseC5Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                read
+                                November
                             </div>
                         </div>
                     </div>
@@ -1514,10 +1494,10 @@
         <div id="modalC5Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q3" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q3">What other word(s) sounds like ~ ? Spell it.</h3>
+                <h3 id="modalLabelC5Q3">What word means ~ ? Spell it.</h3>
             </div>
             <div class="modal-body">
-                <p>here</p>
+                <p>The mother of your mother or father.</p>
                 <div class="accordion" id="accordionC5Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1527,7 +1507,7 @@
                         </div>
                         <div id="collapseC5Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                hear
+                                grandmother or grandma
                             </div>
                         </div>
                     </div>
@@ -1546,10 +1526,10 @@
         <div id="modalC5Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q4" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q4">What other word(s) sounds like ~ ? Spell it.</h3>
+                <h3 id="modalLabelC5Q4">What word means ~ ? Spell it.</h3>
             </div>
             <div class="modal-body">
-                <p>right</p>
+                <p>A place for trains to stop, drop off, and pick up passengers.</p>
                 <div class="accordion" id="accordionC5Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1559,7 +1539,7 @@
                         </div>
                         <div id="collapseC5Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                write
+                                train station (or station)
                             </div>
                         </div>
                     </div>
@@ -1578,11 +1558,11 @@
         <div id="modalC5Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q5" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q5">What other word(s) sounds like ~ ? Spell it.</h3>
+                <h3 id="modalLabelC5Q5">What word means ~ ? Spell it.</h3>
             </div>
             <div class="modal-body">
-                <p>to</p>
-                <p class="hint">Hint: There are two answers.</p>
+                <p>A day of rest. A day without work.</p>
+                <p>Can also be a day of festivals and celebration.</p>
                 <div class="accordion" id="accordionC5Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1592,8 +1572,7 @@
                         </div>
                         <div id="collapseC5Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>too</p>
-                                <p>two</p>
+                                <p>holiday</p>
                             </div>
                         </div>
                     </div>
@@ -1612,11 +1591,10 @@
         <div id="modalC5Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q6" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q6">What other word(s) sounds like ~ ? Spell it.</h3>
+                <h3 id="modalLabelC5Q6">What word means ~ ? Spell it.</h3>
             </div>
             <div class="modal-body">
-                <p>buy</p>
-                <p class="hint">Hint: There are two answers.</p>
+                <p>A place of learning. Students can attend this place after high school.</p>
                 <div class="accordion" id="accordionC5Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1626,8 +1604,7 @@
                         </div>
                         <div id="collapseC5Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>by</p>
-                                <p>bye</p>
+                                <p>university or college</p>
                             </div>
                         </div>
                     </div>
@@ -1646,11 +1623,10 @@
         <div id="modalC5Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q7" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q7">What other word(s) sounds like ~ ? Spell it.</h3>
+                <h3 id="modalLabelC5Q7">What word means ~ ? Spell it.</h3>
             </div>
             <div class="modal-body">
-                <p>there</p>
-                <p class="hint">Hint: There are two answers.</p>
+                <p>All places or directions.</p>
                 <div class="accordion" id="accordionC5Q7">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1660,8 +1636,7 @@
                         </div>
                         <div id="collapseC5Q7" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>their</p>
-                                <p>they're</p>
+                                <p>everywhere</p>
                             </div>
                         </div>
                     </div>
@@ -1693,7 +1668,7 @@
                 <h3 id="modalLabelC6Q1">Science Question</h3>
             </div>
             <div class="modal-body">
-                <p>What is <strong>NaCl</strong> in English?</p>
+                <p>What is <strong>H<span class="subscript">2</span>0</strong> in English?</p>
                 <div class="accordion" id="accordionC6Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1703,7 +1678,7 @@
                         </div>
                         <div id="collapseC6Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                salt
+                                water
                             </div>
                         </div>
                     </div>
@@ -1725,8 +1700,7 @@
                 <h3 id="modalLabelC6Q2">Math Question</h3>
             </div>
             <div class="modal-body">
-                <p>What is <strong>C</strong>?</p>
-                <img src="5-12-13-right-triangle.png" class="question-image" />
+                <p>What is pi (<img src="assets/img/pi.jpg" class="pic-as-text" />) to 5 decimal places?</p>
                 <div class="accordion" id="accordionC6Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1736,7 +1710,7 @@
                         </div>
                         <div id="collapseC6Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                13
+                                3.14159
                             </div>
                         </div>
                     </div>
@@ -1758,7 +1732,7 @@
                 <h3 id="modalLabelC6Q3">Art Question</h3>
             </div>
             <div class="modal-body">
-                <p>When you mix <span class="color-box" style="background-color: yellow;">yellow</span> and <span class="color-box" style="background-color: red;">red</span>, what color do you get?</p>
+                <p>When you mix <span class="color-box" style="background-color: blue; color: white;">blue</span> and <span class="color-box" style="background-color: red; color: white;">red</span>, what color do you get?</p>
                 <div class="accordion" id="accordionC6Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1768,7 +1742,7 @@
                         </div>
                         <div id="collapseC6Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <span class="color-box" style="background-color: orange;">Orange</span>
+                                <span class="color-box" style="background-color: purple; color: white;">purple (or violet)</span>
                             </div>
                         </div>
                     </div>
@@ -1846,8 +1820,7 @@
                 <h3 id="modalLabelC6Q5">Geography Question</h3>
             </div>
             <div class="modal-body">
-                <p>What is the capital of Italy?</p>
-                <p class="hint">Hint: The capital of Japan is Tokyo.</p>
+                <p>Is Germany north or south of Italy?</p>
                 <div class="accordion" id="accordionC6Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1857,7 +1830,7 @@
                         </div>
                         <div id="collapseC6Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Rome
+                                north
                             </div>
                         </div>
                     </div>
@@ -1879,8 +1852,7 @@
                 <h3 id="modalLabelC6Q6">Computer Science Question</h3>
             </div>
             <div class="modal-body">
-                <p>On a keyboard, what letter is to the <em>right</em> of the <strong>J</strong> key?</p>
-                <p class="hint">Hint: It comes next in the alphabet.</p>
+                <p>What is the <strong>M</strong> in RAM?</p>
                 <div class="accordion" id="accordionC6Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1890,7 +1862,7 @@
                         </div>
                         <div id="collapseC6Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                K
+                                RAM = <strong>R</strong>andom <strong>A</strong>ccess <strong>M</strong>emory
                             </div>
                         </div>
                     </div>
@@ -1913,9 +1885,9 @@
             </div>
             <div class="modal-body">
                 <p>Put these in order from earliest to latest:</p>
-                <p><strong>(A)</strong> Nara period - 奈良時代</p>
-                <p><strong>(B)</strong> Kamakura period - 鎌倉時代</p>
-                <p><strong>(C)</strong> Kofun period - 古墳時代</p>
+                <p><strong>(A)</strong> Heian period - 平安時代</p>
+                <p><strong>(B)</strong> Yayoi period - 弥生時代</p>
+                <p><strong>(C)</strong> Asuka period - 飛鳥時代</p>
                 <div class="accordion" id="accordionC6Q7">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1925,9 +1897,9 @@
                         </div>
                         <div id="collapseC6Q7" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p><strong>(C)</strong> Kofun period - 古墳時代 - AD 250 to 538 (about)</p>
-                                <p><strong>(A)</strong> Nara period - 奈良時代 - AD 710 to 794</p>
-                                <p><strong>(B)</strong> Kamakura period - 鎌倉時代 - AD 1185 to 1333</p>
+                                <p><strong>(B)</strong> Yayoi period - 弥生時代 - 300 BC to AD 300 (about)</p>
+                                <p><strong>(C)</strong> Asuka period - 飛鳥時代 - AD 538 to 710 (or 592 to 645)</p>
+                                <p><strong>(A)</strong> Heian period - 平安時代 - AD 794 to 1185</p>
                             </div>
                         </div>
                     </div>
