@@ -34,7 +34,10 @@
             background-color: #69F;
         }
         h1 {
-            margin: 30px;
+            /* web browser setting */
+            /* margin: 30px; */
+            /* node-webkit setting to save space */
+            margin: 10px;
         }
         .topic h2 {
             background-color: #04B486;
@@ -171,7 +174,7 @@
             font-weight: bold;
         }
         .fill-in-the-blank {
-            color: blue;html5 embed music localhtml5 embed music local
+            color: blue;
             font-weight: bold;
         }
         .accordion-heading a {
@@ -251,6 +254,90 @@
         img.pic-as-text {
             height: 30px;
         }
+        /* To center videos, make them block elements.
+           640x368 size videos fit nicely at the moment.
+           So scale to the height at least.
+           http://stackoverflow.com/a/15696993/148212
+        */
+        video {
+            /* width: 640px; */
+            height: 368px;
+            display: block;
+            margin: 0 auto;
+        }
+        .team {
+            background-color: #ABABAB;
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 32px;
+        }
+        .points {
+            /*background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(red));*/
+            padding: 10px 12px;
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+        }
+        td .points {
+            width: 40px;
+            padding: 2px 6px;
+            margin: 0px 10px 0px 10px;
+            display: inline;
+        }
+        label.btn:hover {
+            /* Border Shadows */
+            -webkit-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            /* Fading Borders in */
+            -webkit-transition: all 0.4s ease-in;
+            -moz-transition: all 0.4s ease-in;
+            -ms-transition: all 0.4s ease-in;
+            -o-transition: all 0.4s ease-in;
+            transition: all 0.4s ease-in;
+        }
+        label.btn {
+            border: 3px solid #f5f5f5;
+            /* Rounded Borders */
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+            border-radius: 4px;
+            /* Border Shadows */
+            -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+            /* Fading Borders in and out */
+            -webkit-transition: all 0.6s ease-out;
+            -moz-transition: all 0.6s ease-out;
+            -ms-transition: all 0.6s ease-out;
+            -o-transition: all 0.6s ease-out;
+            transition: all 0.6s ease-out;
+        }
+        label.add:hover {
+            border: 3px solid #01DF01;
+            background: #99FF66;
+        }
+        label.subtract:hover {
+            border: 3px solid #FF0000;
+            background: #FF6666;
+        }
+        a.restart {
+            /*background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(red));*/
+            display: block;
+            padding: 10px 12px;
+            font-size: 18px;
+            font-weight: bold;
+            background-image: none;
+            background-repeat: none;
+            background-color: #CED96A;
+            border: 3px solid #CED96A;
+        }
+        a.restart:hover {
+            background-color: #DDF505;
+            border: 3px solid #DDF505;
+        }
         </style>
 
         <script type="text/javascript" src="swfobject/swfobject.js"></script>
@@ -274,10 +361,9 @@
                     </object>
                 </div>
             */
-            swfobject.registerObject("Toy-Story-Video", "9.0.0");
-            swfobject.registerObject("Spirited-Away-Video", "9.0.0");
-            swfobject.registerObject("LotR-Video", "9.0.0");
-            swfobject.registerObject("Tokyo-Godfathers-Video", "9.0.0");
+            swfobject.registerObject("./assets/videos/Toy-Story-Video", "9.0.0");
+            swfobject.registerObject("./assets/videos/Spirited-Away-Video", "9.0.0");
+            swfobject.registerObject("./assets/videos/Tokyo-Godfathers-Video", "9.0.0");
         </script>
 
 
@@ -312,10 +398,53 @@
                                 <td id="team-5-score">0</td>
                                 <td id="team-6-score">0</td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <label value="team-1-score" class="btn points add">+100</label>
+                                    <label value="team-1-score" class="btn points subtract">-100</label>
+                                </td>
+                                <td>
+                                    <label value="team-2-score" class="btn points add">+100</label>
+                                    <label value="team-2-score" class="btn points subtract">-100</label>
+                                </td>
+                                <td>
+                                    <label value="team-3-score" class="btn points add">+100</label>
+                                    <label value="team-3-score" class="btn points subtract">-100</label>
+                                </td>
+                                <td>
+                                    <label value="team-4-score" class="btn points add">+100</label>
+                                    <label value="team-4-score" class="btn points subtract">-100</label>
+                                </td>
+                                <td>
+                                    <label value="team-5-score" class="btn points add">+100</label>
+                                    <label value="team-5-score" class="btn points subtract">-100</label>
+                                </td>
+                                <td>
+                                    <label value="team-6-score" class="btn points add">+100</label>
+                                    <label value="team-6-score" class="btn points subtract">-100</label>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+            <!-- Game Controls (here or bottom) -->
+            <!--
+            <div class="row">
+                <div class="span1"><label value="team-1-score" class="btn points add">+100</label></div>
+                <div class="span1"><label value="team-1-score" class="btn points subtract">-100</label></div>
+                <div class="span1"><label value="team-2-score" class="btn points add">+100</label></div>
+                <div class="span1"><label value="team-2-score" class="btn points subtract">-100</label></div>
+                <div class="span1"><label value="team-3-score" class="btn points add">+100</label></div>
+                <div class="span1"><label value="team-3-score" class="btn points subtract">-100</label></div>
+                <div class="span1"><label value="team-4-score" class="btn points add">+100</label></div>
+                <div class="span1"><label value="team-4-score" class="btn points subtract">-100</label></div>
+                <div class="span1"><label value="team-5-score" class="btn points add">+100</label></div>
+                <div class="span1"><label value="team-5-score" class="btn points subtract">-100</label></div>
+                <div class="span1"><label value="team-6-score" class="btn points add">+100</label></div>
+                <div class="span1"><label value="team-6-score" class="btn points subtract">-100</label></div>
+            </div>
+            -->
             <!-- Category Headings -->
             <div class="row text-center">
                 <div class="span2 topic"><h2>What's wrong?</h2></div>
@@ -406,11 +535,47 @@
                 <div class="span2 category6"><a href="#modalC6Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
             </div>
             -->
-            <div class="row show-grid">
-                <div class="offset5 span2">
+            <div class="row">
+                <div class="offset4 span2">
                     <a href="#" role="button" class="btn exit" onclick="self.close()">Exit Game</a>
                 </div>
+                <!-- Refresh button
+                     http://www.htmlgoodies.com/tutorials/getting_started/article.php/3479551
+                -->
+                <div class="span2">
+                    <a href="javascript:history.go(0)" role="button" class="btn restart">Restart</a>
+                </div>
             </div>
+            <!-- Game Controls -->
+            <!--
+            <div class="row text-center">
+                <div class="offset4 span4">
+                    <h2>Game Controls</h2>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="span2 info team">Team 1</div>
+                <div class="span2 info team">Team 2</div>
+                <div class="span2 info team">Team 3</div>
+                <div class="span2 info team">Team 4</div>
+                <div class="span2 info team">Team 5</div>
+                <div class="span2 info team">Team 6</div>
+            </div>
+            <div class="row show-grid">
+                <div class="span1"><label value="team-1-score" class="btn points add">+100</label></div>
+                <div class="span1"><label value="team-1-score" class="btn points subtract">-100</label></div>
+                <div class="span1"><label value="team-2-score" class="btn points add">+100</label></div>
+                <div class="span1"><label value="team-2-score" class="btn points subtract">-100</label></div>
+                <div class="span1"><label value="team-3-score" class="btn points add">+100</label></div>
+                <div class="span1"><label value="team-3-score" class="btn points subtract">-100</label></div>
+                <div class="span1"><label value="team-4-score" class="btn points add">+100</label></div>
+                <div class="span1"><label value="team-4-score" class="btn points subtract">-100</label></div>
+                <div class="span1"><label value="team-5-score" class="btn points add">+100</label></div>
+                <div class="span1"><label value="team-5-score" class="btn points subtract">-100</label></div>
+                <div class="span1"><label value="team-6-score" class="btn points add">+100</label></div>
+                <div class="span1"><label value="team-6-score" class="btn points subtract">-100</label></div>
+            </div>
+            -->
         </div>
 
 
@@ -688,20 +853,7 @@
             </div>
             <div class="modal-body">
                 <p>What movie is this from?</p>
-                <div class="swf-video">
-                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="360" id="Toy-Story-Video">
-                        <param name="movie" value="./Toy_Story_-_Official_Trailer_1_1995-KYz2wyBy3kc.swf">
-                        <!--[if !IE]>-->
-                        <object type="application/x-shockwave-flash" data="./Toy_Story_-_Official_Trailer_1_1995-KYz2wyBy3kc.swf" width="640" height="360">
-                        <!--<![endif]-->
-                            <a href="http://www.adobe.com/go/getflashplayer">
-                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
-                            </a>
-                        <!--[if !IE]>-->
-                        </object>
-                        <!--<![endif]-->
-                    </object>
-                </div>
+                <div id="video1"></div>
                 <div class="accordion" id="accordionC2Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1034,20 +1186,7 @@
             </div>
             <div class="modal-body">
                 <p>What movie is this from?</p>
-                <div class="swf-video">
-                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="360" id="Spirited-Away-Video">
-                        <param name="movie" value="./Spirited_Away_Trailer-LQ-_jGXcSBcvQQ.swf">
-                        <!--[if !IE]>-->
-                        <object type="application/x-shockwave-flash" data="./Spirited_Away_Trailer-LQ-_jGXcSBcvQQ.swf" width="640" height="360">
-                        <!--<![endif]-->
-                            <a href="http://www.adobe.com/go/getflashplayer">
-                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
-                            </a>
-                        <!--[if !IE]>-->
-                        </object>
-                        <!--<![endif]-->
-                    </object>
-                </div>
+                <div id="video2"></div>
                 <div class="accordion" id="accordionC3Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1769,21 +1908,7 @@
                 <p class="hint">Hint: He has yellow hair and uses a very big sword.</p>
                 -->
                 <p>What movie is this from?</p>
-                <div class="swf-video">
-                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="480" id="Tokyo-Godfathers-Video">
-                        <param name="movie" value="./Tokyo_Godfathers_Trailer-7Q6mcx2qF4Q.swf">
-                        <!--[if !IE]>-->
-                        <object type="application/x-shockwave-flash" data="./Tokyo_Godfathers_Trailer-7Q6mcx2qF4Q.swf" width="640" height="480">
-                        <!--<![endif]-->
-                            <a href="http://www.adobe.com/go/getflashplayer">
-                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
-                            </a>
-                        <!--[if !IE]>-->
-                        </object>
-                        <!--<![endif]-->
-                    </object>
-                </div>
-
+                <div id="video3"></div>
                 <div class="accordion" id="accordionC6Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -2174,13 +2299,116 @@
         <script src="assets/js/holder/holder.js"></script>
         <script src="assets/js/google-code-prettify/prettify.js"></script>
         <script src="assets/js/application.js"></script>
-
-
+        <script src="assets/js/jquery-ui/jquery-ui.js"></script>
+        <script src="assets/js/jquery-ui/jquery.ui.effect-highlight.js"></script>
 
         <!-- Custom jQuery code for handling team scores. -->
         <script type="text/javascript">
             window.onload = function() {
                 var points = 0;
+
+                /* Special IE Browser Detection for some CSS properties that don't fit right due to Trident's rendering. */
+                /* This is good browser detection code:
+                   http://stackoverflow.com/a/2401861/148212
+                */
+                navigator.sayswho= (function(){
+                    var ua= navigator.userAgent, tem, 
+                    M= ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+                    if(/trident/i.test(M[1])){
+                        tem=  /\brv[ :]+(\d+)/g.exec(ua) || [];
+                        return 'IE '+(tem[1] || '');
+                    }
+                    if(M[1]=== 'Chrome'){
+                        tem= ua.match(/\bOPR\/(\d+)/)
+                        if(tem!= null) return 'Opera '+tem[1];
+                    }
+                    M= M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+                    if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
+                    return M.join(' ');
+                })();
+
+                /* Finding if the string contains some other string x:
+                   http://stackoverflow.com/a/13833963/148212
+                */
+                /* var internetExplorer = "MSIE";
+                if ( navigator.sayswho.indexOf( internetExplorer ) > -1 ) {
+                    $("label.points").text("success");
+                } */
+                /* Alternative is a regex match:
+                   http://stackoverflow.com/a/6603043/148212
+                */
+                if ( /MSIE*/.test(navigator.sayswho) ) {
+                    /* IE is doing some crazy rendering shit with resizing the tables and margins after click the label buttons.
+                       To get everything sized correctly, simulate clicks for all of those label buttons so the scores are at 0.
+                       The reset the colors. After doing a click on one of each pair of buttons, the table should be rendered correctly.
+                       http://stackoverflow.com/questions/17569012/simulate-a-click-on-a-element-using-javascript-jquery
+                    */
+                    $("label.points").css("margin", "0px");
+                    $("label.points").click();
+                    $("#team-1-score").css('background-color', '#D5D6D6');
+                    $("#team-2-score").css('background-color', '#D5D6D6');
+                    $("#team-3-score").css('background-color', '#D5D6D6');
+                    $("#team-4-score").css('background-color', '#D5D6D6');
+                    $("#team-5-score").css('background-color', '#D5D6D6');
+                    $("#team-6-score").css('background-color', '#D5D6D6');
+                    /* Refresh button doesn't retain color in IE... oh so many bugs with trident. */
+                    $("a.restart").css("background-color", "#CED96A");
+                    
+                    /* You also can't use HTML5 video with Internet Explorer (and perhaps others, but only tested IE, FF, and Chrome).
+                       So you need to replace the videos with object elements instead. We will be inserting all videos dynamically for all browsers.
+                       For multiline strings in code in javascript, use trailing slashes:
+                       http://stackoverflow.com/a/5391984/148212
+                    */
+                    replaceTargetWith( 'video1', '<div class="swf-video"> \
+                            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="360" id="Toy-Story-Video"> \
+                                <param name="movie" value="./assets/videos/Toy_Story_-_Official_Trailer_1_1995-KYz2wyBy3kc.swf"> \
+                                <!--[if !IE]>--> \
+                                <object type="application/x-shockwave-flash" data="./assets/videos/Toy_Story_-_Official_Trailer_1_1995-KYz2wyBy3kc.swf" width="640" height="360"> \
+                                <!--<![endif]--> \
+                                    <a href="http://www.adobe.com/go/getflashplayer"> \
+                                        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"> \
+                                    </a> \
+                                <!--[if !IE]>--> \
+                                </object> \
+                                <!--<![endif]--> \
+                            </object> \
+                        </div>' );
+                    replaceTargetWith( 'video2', '<div class="swf-video"> \
+                            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="360" id="Spirited-Away-Video"> \
+                                <param name="movie" value="./assets/videos/Spirited_Away_Trailer-LQ-_jGXcSBcvQQ.swf"> \
+                                <!--[if !IE]>--> \
+                                <object type="application/x-shockwave-flash" data="./assets/videos/Spirited_Away_Trailer-LQ-_jGXcSBcvQQ.swf" width="640" height="360"> \
+                                <!--<![endif]--> \
+                                    <a href="http://www.adobe.com/go/getflashplayer"> \
+                                        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"> \
+                                    </a> \
+                                <!--[if !IE]>--> \
+                                </object> \
+                                <!--<![endif]--> \
+                            </object> \
+                        </div>' );
+                    replaceTargetWith( 'video3', '<div class="swf-video"> \
+                            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="480" id="Tokyo-Godfathers-Video"> \
+                                <param name="movie" value="./assets/videos/Tokyo_Godfathers_Trailer-7Q6mcx2qF4Q.swf"> \
+                                <!--[if !IE]>--> \
+                                <object type="application/x-shockwave-flash" data="./assets/videos/Tokyo_Godfathers_Trailer-7Q6mcx2qF4Q.swf" width="640" height="480"> \
+                                <!--<![endif]--> \
+                                    <a href="http://www.adobe.com/go/getflashplayer"> \
+                                        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"> \
+                                    </a> \
+                                <!--[if !IE]>--> \
+                                </object> \
+                                <!--<![endif]--> \
+                            </object> \
+                        </div>' );
+                } else {
+                    /* A single element replace would also work since the video tag is just a single element:
+                       http://stackoverflow.com/questions/843680/how-to-replace-dom-element-in-place-using-javascript
+                    */
+                    replaceTargetWith( 'video1', '<video src="./assets/videos/Toy-Story.ogg" controls></video>' );
+                    replaceTargetWith( 'video2', '<video src="./assets/videos/Spirited-Away.ogg" controls></video>' );
+                    replaceTargetWith( 'video3', '<video src="./assets/videos/Tokyo-Godfathers.ogg" controls></video>' );
+                }
             }
             
             function updateScore(team) {
@@ -2192,19 +2420,57 @@
                 $("#team-6-score").css('background-color', '#D5D6D6');
                 if (team != "no-score") {
                     $("#" + team).text(parseInt($("#" + team).text(), 10) + points);
-                    $("#" + team).css('background-color', '#4AF216');
+                    if (points > 0) {
+                        $("#" + team).css('background-color', '#4AF216');    
+                    }
+                    else if (points < 0) {
+                        $("#" + team).css('background-color', '#FF2929');
+                    }
                 }
             }
 
             $("a.question").click(function(event) {
                 points = parseInt($(this).text(), 10);
 
-                event.preventDefault(); /* not sure what this line does, but it was in the demo. works fine without the line. */
-                $(this).hide("slow");
-                $(this).parent().css('height', '46px');
+                /* Use this code to hide questions after being selected. */
+                /* event.preventDefault(); /* not sure what this line does, but it was in the demo. works fine without the line. */
+                /* $(this).hide("slow");
+                $(this).parent().css('height', '46px'); */
+
+                /* Use this code to change question colors and remove animations on hover.
+                   Can still click on them to redo the questions. */
+                $(this).css('background-image', 'none');
+                $(this).css('background-repeat', 'none');
+                $(this).css('background-color', '#BD5BB8');
+                $(this).css('border', '3px solid #FE2EF7');
+                $(this).css('-webkit-box-shadow', 'none');
+                $(this).css('-moz-box-shadow', 'none');
+                $(this).css('box-shadow', 'none');
+                $(this).css('-webkit-transition', 'none');
+                $(this).css('-moz-transition', 'none');
+                $(this).css('-ms-transition', 'none');
+                $(this).css('-o-transition', 'none');
+                $(this).css('transition', 'none');
+                $(this).css('text-shadow', 'none');
             });
 
             $("button").click(function(event) {
+                updateScore($(this).attr("value"));
+            });
+
+            $("label.add").click(function(event) {
+                $(this).toggle("highlight", 10);
+                $(this).toggle("highlight", {color: "#00FF00"}, 500);
+
+                points = parseInt($(this).text(), 10);
+                updateScore($(this).attr("value"));
+            });
+
+            $("label.subtract").click(function(event) {
+                $(this).toggle("highlight", 10);
+                $(this).toggle("highlight", {color: "#FF0040"}, 500);
+
+                points = parseInt($(this).text(), 10);
                 updateScore($(this).attr("value"));
             });
 
@@ -2218,6 +2484,36 @@
             });
             */
 
+            /* How to replace elements using javascript:
+               http://stackoverflow.com/a/13388745/148212
+            */
+            function replaceTargetWith( targetID, html ){
+              /// find our target
+              var i, tmp, elm, last, target = document.getElementById(targetID);
+              /// create a temporary div or tr (to support tds)
+              tmp = document.createElement(html.indexOf('<td')!=-1?'tr':'div');
+              /// fill that div with our html, this generates our children
+              tmp.innerHTML = html;
+              /// step through the temporary div's children and insertBefore our target
+              i = tmp.childNodes.length;
+              /// the insertBefore method was more complicated than I first thought so I 
+              /// have improved it. Have to be careful when dealing with child lists as  
+              /// they are counted as live lists and so will update as and when you make
+              /// changes. This is why it is best to work backwards when moving children 
+              /// around, and why I'm assigning the elements I'm working with to `elm` 
+              /// and `last`
+              last = target;
+              while(i--){
+                target.parentNode.insertBefore((elm = tmp.childNodes[i]), last);
+                last = elm;
+              }
+              /// remove the target.
+              target.parentNode.removeChild(target);
+            }
+        </script>
+
+        <!-- This is node.js stuff. -->
+        <script type="text/javascript">
         </script>
     </body>
 </html>
