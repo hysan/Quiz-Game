@@ -37,22 +37,10 @@
             margin: 30px;
         }
         .topic h2 {
-            background-color: #0BE4AA;
+            background-color: #04B486;
             font-size: 18px;
             font-weight: bold;
             font-style: italic;
-        }
-        .topcat h2 {
-            background-color: #04B486;
-            font-size: 30px;
-            font-weight: bold;
-            font-style: italic;
-        }
-        .super-topic h2 {
-            margin: 10px 0px 0px 0px;
-        }
-        .sub-topic h2 {
-            margin: 0px 0px 10px 0px;
         }
         .score {
             font-size: 25px;
@@ -110,28 +98,26 @@
         }
         /* For wider modals, see: https://github.com/twitter/bootstrap/issues/675 */
         .modal{
-            
             width: 940px;
             margin-left: -470px;
-            /* margin-left = -1 * (width/2)
-            width: 1170px;
+            /* margin-left = -1 * (width/2) */
+            /* width: 1170px;
             margin-left: -585px; */
         }
         .modal-header {
             text-align: center;
         }
         /* Quick hack to make the buttons look like they are centered in the modal.
-           Really should read the docs to figure out how to do this correctly. */
-        .btn-primary {
-            /* margin-right: 18px; */
-            margin-right: 110px;
-        }
+           Really should read the docs to figure out how to do this correctly.
+           Use this when making the modal wider. */
+        /* .btn-primary {
+            margin-right: 18px;
+        } */
         .modal-footer button {
             /* 940 / 7 (buttons) = ~134 and change
                so make each button 120 with some padding for space */
-            /* width: 120px; */
+            width: 120px;
             /* width: 150px; */
-            width: 90px;
             font-size: 16px;
             font-weight: bold;
             /* Rounded Borders */
@@ -183,10 +169,6 @@
         .error-correction {
             color: red;
             font-weight: bold;
-        }
-        .extra-words {
-            color: #04A5BA;
-            font-style: italic;
         }
         .fill-in-the-blank {
             color: blue;html5 embed music localhtml5 embed music local
@@ -304,7 +286,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="span12">
-                    <h1>Let's Play Jeopardy!</h1>
+                    <h1>Jeopardy!</h1>
                 </div>
             </div>
             <!-- Team Scores -->
@@ -336,16 +318,12 @@
             </div>
             <!-- Category Headings -->
             <div class="row text-center">
-                <div class="span6 topcat super-topic"><h2>Q&A</h2></div>
-                <div class="span6 topcat super-topic"><h2>Make a sentence</h2></div>
-            </div>
-            <div class="row text-center">
-                <div class="span2 topic sub-topic"><h2>Random</h2></div>
-                <div class="span2 topic sub-topic"><h2>People</h2></div>
-                <div class="span2 topic sub-topic"><h2>Geography?</h2></div>
-                <div class="span2 topic sub-topic"><h2>Random</h2></div>
-                <div class="span2 topic sub-topic"><h2>Animals</h2></div>
-                <div class="span2 topic sub-topic"><h2>Geography?</h2></div>
+                <div class="span2 topic"><h2>What's wrong?</h2></div>
+                <div class="span2 topic"><h2>Q&A</h2></div>
+                <div class="span2 topic"><h2>A&Q</h2></div>
+                <div class="span2 topic"><h2>Fill in the blank</h2></div>
+                <div class="span2 topic"><h2>Which word?</h2></div>
+                <div class="span2 topic"><h2>Other Subjects</h2></div>
             </div>
             <!-- Question 1 -->
             <div class="row show-grid">
@@ -401,7 +379,7 @@
                 <div class="span2 category5"><a href="#modalC5Q6" role="button" class="btn question" data-toggle="modal">600</a></div>
                 <div class="span2 category6"><a href="#modalC6Q6" role="button" class="btn question" data-toggle="modal">600</a></div>
             </div>
-            <!-- Question 7 
+            <!-- Question 7 -->
             <div class="row show-grid">
                 <div class="span2 category1"><a href="#modalC1Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
                 <div class="span2 category2"><a href="#modalC2Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
@@ -409,7 +387,7 @@
                 <div class="span2 category4"><a href="#modalC4Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
                 <div class="span2 category5"><a href="#modalC5Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
                 <div class="span2 category6"><a href="#modalC6Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
-            </div> -->
+            </div>
             <!-- Can go up to 9 rows for questions, though they won't finish with that many. They can't even finish 7 rows (barely)
             <div class="row show-grid">
                 <div class="span2 category1"><a href="#modalC1Q7" role="button" class="btn question" data-toggle="modal">700</a></div>
@@ -451,10 +429,11 @@
         <div id="modalC1Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q1" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC1Q1">Question & Answer</h3>
+                <h3 id="modalLabelC1Q1">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p>What is a subject that teaches students history?</p>
+                <p>He speak English well.</p>
+                <p class="hint">Hint: 1 mistake.</p>
 
                 <!-- http://stackoverflow.com/questions/9419470/how-do-i-get-my-accordion-to-load-with-all-the-menus-closed
                 To have accordian collapsed by default, remove class "in". Include the class to open by default. -->
@@ -467,7 +446,7 @@
                         </div>
                         <div id="collapseC1Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Social studies is.
+                                <p>He <span class="error-correction">speaks</span> English well?</p>
                             </div>
                         </div>
                     </div>
@@ -489,10 +468,11 @@
         <div id="modalC1Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q2" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC1Q2">Question & Answer</h3>
+                <h3 id="modalLabelC1Q2">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p>What is a machine that keeps people warm in winter?</p>
+                <p>Stitch is eat lunch.</p>
+                <p class="hint">Hint: 1 mistake.</p>
                 <div class="accordion" id="accordionC1Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -502,7 +482,7 @@
                         </div>
                         <div id="collapseC1Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Heater / kotatsu / etc. is.
+                                <p>Stitch is <span class="error-correction">eating</span> lunch.</p>
                             </div>
                         </div>
                     </div>
@@ -521,10 +501,11 @@
         <div id="modalC1Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q3" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC1Q3">Question & Answer</h3>
+                <h3 id="modalLabelC1Q3">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p>What is a tool that cuts paper?</p>
+                <p>How many book do you have?</p>
+                <p class="hint">Hint: 1 mistake.</p>
                 <div class="accordion" id="accordionC1Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -534,7 +515,7 @@
                         </div>
                         <div id="collapseC1Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                A scissor is.
+                                <p>How many <span class="error-correction">books</span> do you have?</p>
                             </div>
                         </div>
                     </div>
@@ -553,10 +534,11 @@
         <div id="modalC1Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q4" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC1Q4">Question & Answer</h3>
+                <h3 id="modalLabelC1Q4">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p>What is the color that tells drivers to stop?</p>
+                <p>Who bag is under the table?</p>
+                <p class="hint">Hint: 1 mistakes.</p>
                 <div class="accordion" id="accordionC1Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -566,7 +548,7 @@
                         </div>
                         <div id="collapseC1Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Red is.
+                                <p><span class="error-correction">Whose</span> bag is under the table?</p>
                             </div>
                         </div>
                     </div>
@@ -585,10 +567,12 @@
         <div id="modalC1Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q5" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC1Q5">Question & Answer</h3>
+                <h3 id="modalLabelC1Q5">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p>What is the animal that makes the sound "cock-a-doodle-doo"?</p>
+                <p><strong>A:</strong> What is they making?</p>
+                <p><strong>B:</strong> They are making fortune cookies.</p>
+                <p class="hint">Hint: 1 mistakes.</p>
                 <div class="accordion" id="accordionC1Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -598,7 +582,8 @@
                         </div>
                         <div id="collapseC1Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                A chicken is.
+                                <p><strong>A:</strong> What <span class="error-correction">are</span> they making?</p>
+                                <p><strong>B:</strong> They are making fortune cookies.</p>
                             </div>
                         </div>
                     </div>
@@ -617,10 +602,12 @@
         <div id="modalC1Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q6" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC1Q6">Question & Answer</h3>
+                <h3 id="modalLabelC1Q6">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p>What is the sport that makes the most people in the world excited?</p>
+                <p><strong>A:</strong> Did you studied English yesterday?</p>
+                <p><strong>B:</strong> No, I did.</p>
+                <p class="hint">Hint: 2 mistakes.</p>
                 <div class="accordion" id="accordionC1Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -630,7 +617,8 @@
                         </div>
                         <div id="collapseC1Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Soccer is.
+                                <p><strong>A:</strong> Did you <span class="error-correction">study</span> English yesterday?</p>
+                                <p><strong>B:</strong> No, I <span class="error-correction">didn't / did not</span>.</p>
                             </div>
                         </div>
                     </div>
@@ -649,14 +637,13 @@
         <div id="modalC1Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC1Q7" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC1Q7">Question & Answer</h3>
+                <h3 id="modalLabelC1Q7">Find the error(s) in the sentence(s).</h3>
             </div>
             <div class="modal-body">
-                <p><strong>A:</strong> Let's go eat lunch.</p>
-                <p><strong>B:</strong> OK. Where do you want eat?</p>
-                <p><strong>A:</strong> How about Tres Bien.</p>
-                <p><strong>B:</strong> OK. That sound good.</p>
-                <p class="hint">Hint: 3 mistakes.</p>
+                <p><strong>Kevin:</strong> Hello.</p>
+                <p><strong>Sakura:</strong> Hello, Kevin? That is Sakura.</p>
+                <p><strong>Kevin:</strong> Oh! Hi, Sakura.</p>
+                <p class="hint">Hint: 2 mistakes.</p>
                 <div class="accordion" id="accordionC1Q7">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -666,10 +653,9 @@
                         </div>
                         <div id="collapseC1Q7" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p><strong>A:</strong> Shall we get lunch?</p>
-                                <p><strong>B:</strong> Sure. Where do you want <span class="error-correction">to</span> eat?</p>
-                                <p><strong>A:</strong> How about Tres Bien<span class="error-correction">?</span></p>
-                                <p><strong>B:</strong> OK. That <span class="error-correction">sounds</span> good.</p>
+                                <p><strong>Kevin:</strong> Hello<span class="error-correction">?</span></p>
+                                <p><strong>Sakura:</strong> Hello, Kevin? <span class="error-correction">This</span> is Sakura.</p>
+                                <p><strong>Kevin:</strong> Oh! Hi, Sakura.</p>
                             </div>
                         </div>
                     </div>
@@ -698,10 +684,24 @@
         <div id="modalC2Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC2Q1" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC2Q1">Question & Answer</h3>
+                <h3 id="modalLabelC2Q1">Surprise Video Question!</h3>
             </div>
             <div class="modal-body">
-                <p>What is a book that makes you happy?</p>
+                <p>What movie is this from?</p>
+                <div class="swf-video">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="360" id="Toy-Story-Video">
+                        <param name="movie" value="./Toy_Story_-_Official_Trailer_1_1995-KYz2wyBy3kc.swf">
+                        <!--[if !IE]>-->
+                        <object type="application/x-shockwave-flash" data="./Toy_Story_-_Official_Trailer_1_1995-KYz2wyBy3kc.swf" width="640" height="360">
+                        <!--<![endif]-->
+                            <a href="http://www.adobe.com/go/getflashplayer">
+                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
+                            </a>
+                        <!--[if !IE]>-->
+                        </object>
+                        <!--<![endif]-->
+                    </object>
+                </div>
                 <div class="accordion" id="accordionC2Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -711,7 +711,7 @@
                         </div>
                         <div id="collapseC2Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is.
+                                <p>Toy Story</p>
                             </div>
                         </div>
                     </div>
@@ -733,7 +733,7 @@
                 <h3 id="modalLabelC2Q2">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>What is a movie that makes you sad?</p>
+                <p>How does Mr. Cheng usually come to school?</p>
                 <div class="accordion" id="accordionC2Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -743,7 +743,9 @@
                         </div>
                         <div id="collapseC2Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is.
+                                <p>He usually comes to school on foot (by walking).</p>
+                                <p>OR</p>
+                                <p>He usually walks to school.</p>
                             </div>
                         </div>
                     </div>
@@ -765,7 +767,7 @@
                 <h3 id="modalLabelC2Q3">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>What is a sport that makes (pick a student) excited?</p>
+                <p>Which is your favorite, Disney movies or Studio Ghibli movies?</p>
                 <div class="accordion" id="accordionC2Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -775,7 +777,7 @@
                         </div>
                         <div id="collapseC2Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is.
+                                <p>~ is.</p>
                             </div>
                         </div>
                     </div>
@@ -797,7 +799,7 @@
                 <h3 id="modalLabelC2Q4">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>What is a comic that makes Mr. Cheng happy?</p>
+                <p>Where is the clock?</p>
                 <div class="accordion" id="accordionC2Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -807,7 +809,7 @@
                         </div>
                         <div id="collapseC2Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is.
+                                <p>It's on the wall.</p>
                             </div>
                         </div>
                     </div>
@@ -829,7 +831,7 @@
                 <h3 id="modalLabelC2Q5">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>What is a subject that makes many students in 3A excited?</p>
+                <p>When's Christmas?</p>
                 <div class="accordion" id="accordionC2Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -839,7 +841,7 @@
                         </div>
                         <div id="collapseC2Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is.
+                                <p>(It's on) December 25th.</p>
                             </div>
                         </div>
                     </div>
@@ -861,7 +863,7 @@
                 <h3 id="modalLabelC2Q6">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>What is a song that makes Mr. Ito sad?</p>
+                <p>How many brothers does Ho Yin Cheng have?</p>
                 <div class="accordion" id="accordionC2Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -871,7 +873,7 @@
                         </div>
                         <div id="collapseC2Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is.
+                                <p>He has two brothers.</p>
                             </div>
                         </div>
                     </div>
@@ -893,7 +895,7 @@
                 <h3 id="modalLabelC2Q7">Question & Answer</h3>
             </div>
             <div class="modal-body">
-                <p>On a menu (or clothes), what does <em>L</em>, <em>M</em>, and <em>S</em> mean?</p>
+                <p>Can I open the door?</p>
                 <div class="accordion" id="accordionC2Q7">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -903,7 +905,7 @@
                         </div>
                         <div id="collapseC2Q7" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Large Medium Small
+                                <p>Sure. / Sorry, you can't.</p>
                             </div>
                         </div>
                     </div>
@@ -932,10 +934,10 @@
         <div id="modalC3Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q1" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC3Q1">Question & Answer</h3>
+                <h3 id="modalLabelC3Q1">Answer & Question</h3>
             </div>
             <div class="modal-body">
-                <p>What is a river that runs though Fujisato?</p>
+                <p>It's mine.</p>
                 <div class="accordion" id="accordionC3Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -945,7 +947,7 @@
                         </div>
                         <div id="collapseC3Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Fujikoto River is.
+                                <p>Whose ~ is this/that?</p>
                             </div>
                         </div>
                     </div>
@@ -964,10 +966,10 @@
         <div id="modalC3Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q2" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC3Q2">Question & Answer</h3>
+                <h3 id="modalLabelC3Q2">Answer & Question</h3>
             </div>
             <div class="modal-body">
-                <p>What is the line that goes from Futatsui to Noshiro?</p>
+                <p>Cake is.</p>
                 <div class="accordion" id="accordionC3Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -977,7 +979,7 @@
                         </div>
                         <div id="collapseC3Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is.
+                                <p>Which is your favorite, cake or ~?</p>
                             </div>
                         </div>
                     </div>
@@ -996,10 +998,10 @@
         <div id="modalC3Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q3" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC3Q3">Question & Answer</h3>
+                <h3 id="modalLabelC3Q3">Answer & Question</h3>
             </div>
             <div class="modal-body">
-                <p>What is the wall that protected many people in China?</p>
+                <p>Yes, he can.</p>
                 <div class="accordion" id="accordionC3Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1009,7 +1011,7 @@
                         </div>
                         <div id="collapseC3Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                The Great Wall is.
+                                <p>Can ~ V ~ ?</p>
                             </div>
                         </div>
                     </div>
@@ -1028,10 +1030,24 @@
         <div id="modalC3Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q4" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC3Q4">Question & Answer</h3>
+                <h3 id="modalLabelC3Q4">Surprise Video Question!</h3>
             </div>
             <div class="modal-body">
-                <p>What is the park that makes many people in New York happy?</p>
+                <p>What movie is this from?</p>
+                <div class="swf-video">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="360" id="Spirited-Away-Video">
+                        <param name="movie" value="./Spirited_Away_Trailer-LQ-_jGXcSBcvQQ.swf">
+                        <!--[if !IE]>-->
+                        <object type="application/x-shockwave-flash" data="./Spirited_Away_Trailer-LQ-_jGXcSBcvQQ.swf" width="640" height="360">
+                        <!--<![endif]-->
+                            <a href="http://www.adobe.com/go/getflashplayer">
+                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
+                            </a>
+                        <!--[if !IE]>-->
+                        </object>
+                        <!--<![endif]-->
+                    </object>
+                </div>
                 <div class="accordion" id="accordionC3Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1041,7 +1057,9 @@
                         </div>
                         <div id="collapseC3Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Central Park is.
+                                <!--Link-->
+                                <p>Spirited Away</p>
+                                <p>千と千尋の神隠し</p>
                             </div>
                         </div>
                     </div>
@@ -1060,10 +1078,10 @@
         <div id="modalC3Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q5" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC3Q5">Question & Answer</h3>
+                <h3 id="modalLabelC3Q5">Answer & Question</h3>
             </div>
             <div class="modal-body">
-                <p>What is the tallest building that stands in Japan?</p>
+                <p>That is Ichiro.</p>
                 <div class="accordion" id="accordionC3Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1073,7 +1091,7 @@
                         </div>
                         <div id="collapseC3Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                The Sky Tree is.
+                                <p>Do you know him?</p>
                             </div>
                         </div>
                     </div>
@@ -1092,10 +1110,10 @@
         <div id="modalC3Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q6" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC3Q6">Question & Answer</h3>
+                <h3 id="modalLabelC3Q6">Answer & Question</h3>
             </div>
             <div class="modal-body">
-                <p>What is the river that runs through New York?</p>
+                <p>Sorry, I can't.</p>
                 <div class="accordion" id="accordionC3Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1105,7 +1123,7 @@
                         </div>
                         <div id="collapseC3Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>The Hudson River is.</p>
+                                <p>Can you V ~ ?</p>
                             </div>
                         </div>
                     </div>
@@ -1124,12 +1142,10 @@
         <div id="modalC3Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC3Q7" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC3Q7">Question & Answer</h3>
+                <h3 id="modalLabelC3Q7">Answer & Question</h3>
             </div>
             <div class="modal-body">
-                <p class="who-am-i">I am a detective.</p>
-                <p class="who-am-i">I'm from London.</p>
-                <p class="who-am-i">My best friend is Watson.</p>
+                <p>Yes, I have two.</p>
                 <div class="accordion" id="accordionC3Q7">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1139,7 +1155,7 @@
                         </div>
                         <div id="collapseC3Q7" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>Sherlock Holmes</p>
+                                <p>Do you have any (nets / ~)?</p>
                             </div>
                         </div>
                     </div>
@@ -1168,10 +1184,10 @@
         <div id="modalC4Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q1" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q1">Make a sentence</h3>
+                <h3 id="modalLabelC4Q1">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <p>Basketball</p>
+                <p>Is that ______ apple?</p>
                 <div class="accordion" id="accordionC4Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1181,7 +1197,7 @@
                         </div>
                         <div id="collapseC4Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~
+                                <p>Is that <span class="fill-in-the-blank">an</span> apple?</p>
                             </div>
                         </div>
                     </div>
@@ -1200,10 +1216,10 @@
         <div id="modalC4Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q2" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q2">Make a sentence</h3>
+                <h3 id="modalLabelC4Q2">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <p>Computers</p>
+                <p>Pooh is a yellow ______.</p>
                 <div class="accordion" id="accordionC4Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1213,7 +1229,7 @@
                         </div>
                         <div id="collapseC4Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~
+                                <p>Pooh is a yellow <span class="fill-in-the-blank">bear</span>.</p>
                             </div>
                         </div>
                     </div>
@@ -1232,10 +1248,11 @@
         <div id="modalC4Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q3" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q3">Make a sentence</h3>
+                <h3 id="modalLabelC4Q3">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <p>One Piece</p>
+                <p><strong>A:</strong> How ______ is that pen?</p>
+                <p><strong>B:</strong> It's 400 yen.</p>
                 <div class="accordion" id="accordionC4Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1245,7 +1262,8 @@
                         </div>
                         <div id="collapseC4Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~
+                                <p><strong>A:</strong> How <span class="fill-in-the-blank">much</span> is that pen?</p>
+                                <p><strong>B:</strong> It's 400 yen.</p>
                             </div>
                         </div>
                     </div>
@@ -1264,10 +1282,11 @@
         <div id="modalC4Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q4" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q4">Make a sentence</h3>
+                <h3 id="modalLabelC4Q4">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <p>(anything, your choice)</p>
+                <p>Are you ______ on Saturday night?</p>
+                <p>It's my birthday party.</p>
                 <div class="accordion" id="accordionC4Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1277,7 +1296,8 @@
                         </div>
                         <div id="collapseC4Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~
+                                <p>Are you <span class="fill-in-the-blank">free</span> on Saturday night?</p>
+                                <p>It's my birthday party.</p>
                             </div>
                         </div>
                     </div>
@@ -1296,10 +1316,10 @@
         <div id="modalC4Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q5" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q5">Make a sentence</h3>
+                <h3 id="modalLabelC4Q5">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <p>Green</p>
+                <p>______ ______. I'm looking for Midori Station.</p>
                 <div class="accordion" id="accordionC4Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1309,7 +1329,7 @@
                         </div>
                         <div id="collapseC4Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~
+                                <p><span class="fill-in-the-blank">Excuse</span> <span class="fill-in-the-blank">me</span>. I'm looking for Midori Station.</p>
                             </div>
                         </div>
                     </div>
@@ -1328,10 +1348,10 @@
         <div id="modalC4Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q6" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q6">Make a sentence</h3>
+                <h3 id="modalLabelC4Q6">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <p>English</p>
+                <p>Ms. Brown ______ to a ______ on New Year's Eve.</p>
                 <div class="accordion" id="accordionC4Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1341,7 +1361,7 @@
                         </div>
                         <div id="collapseC4Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ is/was the ~ who ~ .
+                                <p>Ms. Brown <span class="fill-in-the-blank">went</span> to a <span class="fill-in-the-blank">shrine</span> on New Year's Eve.</p>
                             </div>
                         </div>
                     </div>
@@ -1360,10 +1380,11 @@
         <div id="modalC4Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC4Q7" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC4Q7">Make a sentence</h3>
+                <h3 id="modalLabelC4Q7">Fill in the blanks with the correct word(s).</h3>
             </div>
             <div class="modal-body">
-                <p>I ______ have milk and cereal ______ breakfast, ______ today I had an onigiri.</p>
+                <p>I ______ have milk and cereal ______ breakfast,</p>
+                <p>but today I ______ an onigiri.</p>
                 <div class="accordion" id="accordionC4Q7">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1373,7 +1394,8 @@
                         </div>
                         <div id="collapseC4Q7" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                I <span class="fill-in-the-blank">usually</span> have milk and cereal <span class="fill-in-the-blank">for</span> breakfast, <span class="fill-in-the-blank">but</span> today I had an onigiri.
+                                <p>I <span class="fill-in-the-blank">usually</span> have milk and cereal <span class="fill-in-the-blank">for</span> breakfast,</p>
+                                <p>but today I <span class="fill-in-the-blank">had</span> an onigiri.</p>
                             </div>
                         </div>
                     </div>
@@ -1402,10 +1424,11 @@
         <div id="modalC5Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q1" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q1">Make a sentence</h3>
+                <h3 id="modalLabelC5Q1">Which word am I saying?</h3>
             </div>
             <div class="modal-body">
-                <p>Cats</p>
+                <p><strong>(A)</strong> see</p>
+                <p><strong>(B)</strong> she</p>
                 <div class="accordion" id="accordionC5Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1415,7 +1438,7 @@
                         </div>
                         <div id="collapseC5Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ are the animal that ~ .
+                                <p><strong>(B)</strong> she</p>
                             </div>
                         </div>
                     </div>
@@ -1434,10 +1457,11 @@
         <div id="modalC5Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q2" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q2">Make a sentence</h3>
+                <h3 id="modalLabelC5Q2">Which word am I saying?</h3>
             </div>
             <div class="modal-body">
-                <p>Dogs</p>
+                <p><strong>(A)</strong> it</p>
+                <p><strong>(B)</strong> its / it's</p>
                 <div class="accordion" id="accordionC5Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1447,7 +1471,7 @@
                         </div>
                         <div id="collapseC5Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ are the animal that ~ .
+                                <p><strong>(A)</strong> it</p>
                             </div>
                         </div>
                     </div>
@@ -1466,10 +1490,11 @@
         <div id="modalC5Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q3" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q3">Make a sentence</h3>
+                <h3 id="modalLabelC5Q3">Which word am I saying?</h3>
             </div>
             <div class="modal-body">
-                <p>Lions</p>
+                <p><strong>(A)</strong> forty</p>
+                <p><strong>(B)</strong> fourteen</p>
                 <div class="accordion" id="accordionC5Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1479,7 +1504,7 @@
                         </div>
                         <div id="collapseC5Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ are the animal that ~ .
+                                <p><strong>(B)</strong> fourteen</p>
                             </div>
                         </div>
                     </div>
@@ -1498,10 +1523,11 @@
         <div id="modalC5Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q4" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q4">Make a sentence</h3>
+                <h3 id="modalLabelC5Q4">Which word am I saying?</h3>
             </div>
             <div class="modal-body">
-                <p>Fish</p>
+                <p><strong>(A)</strong> sell</p>
+                <p><strong>(B)</strong> shell</p>
                 <div class="accordion" id="accordionC5Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1511,7 +1537,7 @@
                         </div>
                         <div id="collapseC5Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ are the animal that ~ .
+                                <p><strong>(A)</strong> sell</p>
                             </div>
                         </div>
                     </div>
@@ -1530,10 +1556,11 @@
         <div id="modalC5Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q5" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q5">Make a sentence</h3>
+                <h3 id="modalLabelC5Q5">Which word am I saying?</h3>
             </div>
             <div class="modal-body">
-                <p>Kangaroos</p>
+                <p><strong>(A)</strong> right</p>
+                <p><strong>(B)</strong> light</p>
                 <div class="accordion" id="accordionC5Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1543,7 +1570,7 @@
                         </div>
                         <div id="collapseC5Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ are the animal that ~ .
+                                <p><strong>(A)</strong> right</p>
                             </div>
                         </div>
                     </div>
@@ -1562,10 +1589,11 @@
         <div id="modalC5Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q6" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q6">Make a sentence</h3>
+                <h3 id="modalLabelC5Q6">Which word am I saying?</h3>
             </div>
             <div class="modal-body">
-                <p>Elephants</p>
+                <p><strong>(A)</strong> row</p>
+                <p><strong>(B)</strong> low</p>
                 <div class="accordion" id="accordionC5Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1575,7 +1603,7 @@
                         </div>
                         <div id="collapseC5Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~ are the animal that ~ .
+                                <p><strong>(B)</strong> low</p>
                             </div>
                         </div>
                     </div>
@@ -1594,10 +1622,11 @@
         <div id="modalC5Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC5Q7" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC5Q7">Make a sentence</h3>
+                <h3 id="modalLabelC5Q7">Which word am I saying?</h3>
             </div>
             <div class="modal-body">
-                <p>A dog that helps blind people.</p>
+                <p><strong>(A)</strong> rice</p>
+                <p><strong>(B)</strong> lice</p>
                 <div class="accordion" id="accordionC5Q7">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1607,7 +1636,7 @@
                         </div>
                         <div id="collapseC5Q7" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p>guide dog</p>
+                                <p><strong>(B)</strong> lice</p>
                             </div>
                         </div>
                     </div>
@@ -1636,10 +1665,10 @@
         <div id="modalC6Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q1" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC6Q1">Make a sentence</h3>
+                <h3 id="modalLabelC6Q1">Science Question</h3>
             </div>
             <div class="modal-body">
-                <p>Itoku</p>
+                <p>What is <strong>H<span class="subscript">2</span>0</strong> in English?</p>
                 <div class="accordion" id="accordionC6Q1">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1649,7 +1678,7 @@
                         </div>
                         <div id="collapseC6Q1" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~
+                                <p>water</p>
                             </div>
                         </div>
                     </div>
@@ -1668,11 +1697,10 @@
         <div id="modalC6Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q2" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC6Q2">Make a sentence</h3>
+                <h3 id="modalLabelC6Q2">Math Question</h3>
             </div>
             <div class="modal-body">
-                <p>The Nile River</p>
-                <p class="hint">Hint: ~ that runs through ~ </p>
+                <p>What 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10?</p>
                 <div class="accordion" id="accordionC6Q2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1682,7 +1710,7 @@
                         </div>
                         <div id="collapseC6Q2" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~
+                                <p>fifty-five (55)</p>
                             </div>
                         </div>
                     </div>
@@ -1701,10 +1729,10 @@
         <div id="modalC6Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q3" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC6Q3">Make a sentence</h3>
+                <h3 id="modalLabelC6Q3">Art Question</h3>
             </div>
             <div class="modal-body">
-                <p>The Sun</p>
+                <p>When you mix <span class="color-box" style="background-color: blue; color: white;">blue</span> and <span class="color-box" style="background-color: red; color: white;">red</span>, what color do you get?</p>
                 <div class="accordion" id="accordionC6Q3">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1714,7 +1742,7 @@
                         </div>
                         <div id="collapseC6Q3" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~
+                                <p><span class="color-box" style="background-color: purple; color: white;">purple (or violet)</span></p>
                             </div>
                         </div>
                     </div>
@@ -1733,10 +1761,29 @@
         <div id="modalC6Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q4" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC6Q4">Make a sentence</h3>
+                <h3 id="modalLabelC6Q4">Surprise Video Question<!--Video Game Question--></h3>
             </div>
             <div class="modal-body">
-                <p>The Moon</p>
+                <!--
+                <p>What is the name of the hero in Final Fantasy VII?</p>
+                <p class="hint">Hint: He has yellow hair and uses a very big sword.</p>
+                -->
+                <p>What movie is this from?</p>
+                <div class="swf-video">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="480" id="Tokyo-Godfathers-Video">
+                        <param name="movie" value="./Tokyo_Godfathers_Trailer-7Q6mcx2qF4Q.swf">
+                        <!--[if !IE]>-->
+                        <object type="application/x-shockwave-flash" data="./Tokyo_Godfathers_Trailer-7Q6mcx2qF4Q.swf" width="640" height="480">
+                        <!--<![endif]-->
+                            <a href="http://www.adobe.com/go/getflashplayer">
+                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
+                            </a>
+                        <!--[if !IE]>-->
+                        </object>
+                        <!--<![endif]-->
+                    </object>
+                </div>
+
                 <div class="accordion" id="accordionC6Q4">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1746,7 +1793,12 @@
                         </div>
                         <div id="collapseC6Q4" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~
+                                <!--
+                                <p>Cloud Strife</p>
+                                <p>クラウド・ストライフ</p>
+                                -->
+                                <p>Tokyo Godfathers</p>
+                                <p>東京ゴッドファーザーズ</p>
                             </div>
                         </div>
                     </div>
@@ -1765,10 +1817,10 @@
         <div id="modalC6Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q5" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC6Q5">Make a sentence</h3>
+                <h3 id="modalLabelC6Q5">Geography Question</h3>
             </div>
             <div class="modal-body">
-                <p>Shirakami Mountains</p>
+                <p>Is Germany north or south of Italy?</p>
                 <div class="accordion" id="accordionC6Q5">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1778,7 +1830,7 @@
                         </div>
                         <div id="collapseC6Q5" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~
+                                <p>north</p>
                             </div>
                         </div>
                     </div>
@@ -1797,10 +1849,13 @@
         <div id="modalC6Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q6" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC6Q6">Make a sentence</h3>
+                <h3 id="modalLabelC6Q6">American History Question</h3>
             </div>
             <div class="modal-body">
-                <p>Japan</p>
+                <p>Put these American presidents in order from earliest to latest:</p>
+                <p><strong>(A)</strong> Abraham Lincoln (エイブラハム ・ リンカーン)</p>
+                <p><strong>(B)</strong> John F. Kennedy (ジョン ・ F ・ ケネディ)</p>
+                <p><strong>(C)</strong> George Washington (ジョージ ・ ワシントン)</p>
                 <div class="accordion" id="accordionC6Q6">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1810,7 +1865,9 @@
                         </div>
                         <div id="collapseC6Q6" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                ~
+                                <p><strong>(C)</strong> George Washington (ジョージ ・ ワシントン)</p>
+                                <p><strong>(A)</strong> Abraham Lincoln (エイブラハム ・ リンカーン)</p>
+                                <p><strong>(B)</strong> John F. Kennedy (ジョン ・ F ・ ケネディ)</p>
                             </div>
                         </div>
                     </div>
@@ -1829,13 +1886,10 @@
         <div id="modalC6Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC6Q7" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC6Q7">Social Studies Question</h3>
+                <h3 id="modalLabelC6Q7">Earth Science Question</h3>
             </div>
             <div class="modal-body">
-                <p>Put these in order from earliest to latest:</p>
-                <p><strong>(A)</strong> Heian period - 平安時代</p>
-                <p><strong>(B)</strong> Yayoi period - 弥生時代</p>
-                <p><strong>(C)</strong> Asuka period - 飛鳥時代</p>
+                <p>How many days are in the year 1900?</p>
                 <div class="accordion" id="accordionC6Q7">
                     <div class="accordion-group">
                         <div class="accordion-heading">
@@ -1845,9 +1899,7 @@
                         </div>
                         <div id="collapseC6Q7" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <p><strong>(B)</strong> Yayoi period - 弥生時代 - 300 BC to AD 300 (about)</p>
-                                <p><strong>(C)</strong> Asuka period - 飛鳥時代 - AD 538 to 710 (or 592 to 645)</p>
-                                <p><strong>(A)</strong> Heian period - 平安時代 - AD 794 to 1185</p>
+                                <p>three hundred (and) sixty-fix (365) days</p>
                             </div>
                         </div>
                     </div>
@@ -1874,7 +1926,7 @@
         <div id="modalC#Q1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q1" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC#Q1">Question & Answer</h3>
+                <h3 id="modalLabelC#Q1">Answer & Question</h3>
             </div>
             <div class="modal-body">
                 <p>The Question</p>
@@ -1906,7 +1958,7 @@
         <div id="modalC#Q2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q2" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC#Q2">Question & Answer</h3>
+                <h3 id="modalLabelC#Q2">Answer & Question</h3>
             </div>
             <div class="modal-body">
                 <p>The Question</p>
@@ -1938,7 +1990,7 @@
         <div id="modalC#Q3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q3" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC#Q3">Question & Answer</h3>
+                <h3 id="modalLabelC#Q3">Answer & Question</h3>
             </div>
             <div class="modal-body">
                 <p>The Question</p>
@@ -1970,7 +2022,7 @@
         <div id="modalC#Q4" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q4" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC#Q4">Question & Answer</h3>
+                <h3 id="modalLabelC#Q4">Answer & Question</h3>
             </div>
             <div class="modal-body">
                 <p>The Question</p>
@@ -2002,7 +2054,7 @@
         <div id="modalC#Q5" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q5" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC#Q5">Question & Answer</h3>
+                <h3 id="modalLabelC#Q5">Answer & Question</h3>
             </div>
             <div class="modal-body">
                 <p>The Question</p>
@@ -2034,7 +2086,7 @@
         <div id="modalC#Q6" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q6" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC#Q6">Question & Answer</h3>
+                <h3 id="modalLabelC#Q6">Answer & Question</h3>
             </div>
             <div class="modal-body">
                 <p>The Question</p>
@@ -2066,7 +2118,7 @@
         <div id="modalC#Q7" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLabelC#Q7" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="modalLabelC#Q7">Question & Answer</h3>
+                <h3 id="modalLabelC#Q7">Answer & Question</h3>
             </div>
             <div class="modal-body">
                 <p>The Question</p>
