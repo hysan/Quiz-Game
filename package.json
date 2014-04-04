@@ -1,0 +1,8 @@
+{
+    "name": "Jeopardy",
+    "main": "./html/jeopardy/Jeopardy.html",
+    "window": {
+        "toolbar": true,
+        "kiosk": false
+    }
+}
