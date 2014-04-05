@@ -111,14 +111,14 @@
             text-align: center;
         }
         /* Quick hack to make the buttons look like they are centered in the modal.
-           Really should read the docs to figure out how to do this correctly.
-           Use this when making the modal wider. */
+        Really should read the docs to figure out how to do this correctly.
+        Use this when making the modal wider. */
         /* .btn-primary {
             margin-right: 18px;
         } */
         .modal-footer button {
             /* 940 / 7 (buttons) = ~134 and change
-               so make each button 120 with some padding for space */
+            so make each button 120 with some padding for space */
             width: 120px;
             /* width: 150px; */
             font-size: 16px;
@@ -255,9 +255,9 @@
             height: 30px;
         }
         /* To center videos, make them block elements.
-           640x368 size videos fit nicely at the moment.
-           So scale to the height at least.
-           http://stackoverflow.com/a/15696993/148212
+        640x368 size videos fit nicely at the moment.
+        So scale to the height at least.
+        http://stackoverflow.com/a/15696993/148212
         */
         video {
             /* width: 640px; */
@@ -457,7 +457,7 @@
                     <a href="#" role="button" class="btn exit" onclick="self.close()">Exit Game</a>
                 </div>
                 <!-- Refresh button
-                     http://www.htmlgoodies.com/tutorials/getting_started/article.php/3479551
+                    http://www.htmlgoodies.com/tutorials/getting_started/article.php/3479551
                 -->
                 <div class="span2">
                     <a href="javascript:history.go(0)" role="button" class="btn restart">Restart</a>
@@ -466,7 +466,7 @@
         </div>
         <div id="modalData">
             <!-- Modals for all questions
-                 IDs to edit to make unique: modalC#Q#, accordionC#Q#, collapseC#Q#, modalLabelC#Q#
+                IDs to edit to make unique: modalC#Q#, accordionC#Q#, collapseC#Q#, modalLabelC#Q#
             -->
         </div>
 
@@ -492,7 +492,7 @@
                 <h3 id="ceditorHeader"></h3>
             </div>
             <div class="modal-body">
-                 <textarea id="ceditorNicEdit" name="ceditorNicEdit" style="width: 100%;">
+                <textarea id="ceditorNicEdit" name="ceditorNicEdit" style="width: 100%;">
                     Some Initial Content was in this textarea
                 </textarea>
             </div>
@@ -559,8 +559,8 @@
         </script>
         
         <!-- Alternative to jquery-csv:
-             http://stackoverflow.com/questions/1293147/javascript-code-to-parse-csv-data
-             http://www.bennadel.com/blog/1504-Ask-Ben-Parsing-CSV-Strings-With-Javascript-Exec-Regular-Expression-Command.htm
+            http://stackoverflow.com/questions/1293147/javascript-code-to-parse-csv-data
+            http://www.bennadel.com/blog/1504-Ask-Ben-Parsing-CSV-Strings-With-Javascript-Exec-Regular-Expression-Command.htm
         <script type="text/javascript">
 
             // This will parse a delimited string into an array of
@@ -652,8 +652,8 @@
         -->
         
         <!-- Special File Upload Scripts 
-             http://stackoverflow.com/questions/21078905/parse-a-local-file-to-an-array-using-javascript
-             http://jsfiddle.net/uTST5/1/
+            http://stackoverflow.com/questions/21078905/parse-a-local-file-to-an-array-using-javascript
+            http://jsfiddle.net/uTST5/1/
         -->
         <script type="text/javascript">
             var upl = document.getElementById('gameFile');
@@ -681,39 +681,39 @@
             }
         </script>
 
-		<!-- Code to handle loading external resources when running node-webkit as a
-			 packaged application. Context is changed in such a case for where the 
-			 app thinks it is running.
-			 The check that worked is this: http://stackoverflow.com/questions/13726877/target-node-webkit-browser-using-jquery
-			 What did not work was this check: typeof exports !== 'undefined' && this.exports !== exports
-			 that is supposed to tell if you are running a node.js module in the
-			 server or client, which is pretty telling as that means node-webkit is
-			 running in the server context: http://timetler.com/2012/10/13/environment-detection-in-javascript/
-			 These are other relevant discussions that center on this issue:
-			 https://groups.google.com/forum/#!topic/node-webkit/A6F-cBKW6Es
-			 https://groups.google.com/forum/#!topic/node-webkit/jdm-dtRdvAQ
-			 http://stackoverflow.com/questions/21746570/requiring-running-javascript-outside-of-node-webkit-application
-			 https://groups.google.com/forum/#!topic/node-webkit/IwGzluFC9iU/discussion
-		-->
+        <!-- Code to handle loading external resources when running node-webkit as a
+            packaged application. Context is changed in such a case for where the 
+            app thinks it is running.
+            The check that worked is this: http://stackoverflow.com/questions/13726877/target-node-webkit-browser-using-jquery
+            What did not work was this check: typeof exports !== 'undefined' && this.exports !== exports
+            that is supposed to tell if you are running a node.js module in the
+            server or client, which is pretty telling as that means node-webkit is
+            running in the server context: http://timetler.com/2012/10/13/environment-detection-in-javascript/
+            These are other relevant discussions that center on this issue:
+            https://groups.google.com/forum/#!topic/node-webkit/A6F-cBKW6Es
+            https://groups.google.com/forum/#!topic/node-webkit/jdm-dtRdvAQ
+            http://stackoverflow.com/questions/21746570/requiring-running-javascript-outside-of-node-webkit-application
+            https://groups.google.com/forum/#!topic/node-webkit/IwGzluFC9iU/discussion
+        -->
         <script type="text/javascript">
-			var pathstr = '';
+            var pathstr = '';
 
-			if (typeof process == "object") {
-				console.log("I'm in node-webkit.");
-				console.log("node-webkit version " + process.versions['node-webkit']);
-				var path = require("path");
-				pathstr = path.dirname(process.execPath); 
-				console.log("pathstr = " + pathstr);
-				pathstr += '/';
-			} else {
-				console.log("I'm not node-webkit.");
-			}
+            if (typeof process == "object") {
+                console.log("I'm in node-webkit.");
+                console.log("node-webkit version " + process.versions['node-webkit']);
+                var path = require("path");
+                pathstr = path.dirname(process.execPath); 
+                console.log("pathstr = " + pathstr);
+                pathstr += '/';
+            } else {
+                console.log("I'm not node-webkit.");
+            }
         </script>
 
         <!-- Custom jQuery code for handling team scores. -->
         <script type="text/javascript">
             /* Global Variables (some basic default values)
-               These will all be replaced when the global quiz data script is loaded. */
+            These will all be replaced when the global quiz data script is loaded. */
             var numberOfTeams = 6;
             var gameName = "Jeopardy!";
             var categoryNames = [];
@@ -883,7 +883,7 @@
                 
                 /* Special IE Browser Detection for some CSS properties that don't fit right due to Trident's rendering. */
                 /* This is good browser detection code:
-                   http://stackoverflow.com/a/2401861/148212
+                http://stackoverflow.com/a/2401861/148212
                 */
                 navigator.sayswho = (function(){
                     var ua= navigator.userAgent, tem, 
@@ -902,20 +902,20 @@
                 })();
 
                 /* Finding if the string contains some other string x:
-                   http://stackoverflow.com/a/13833963/148212
+                http://stackoverflow.com/a/13833963/148212
                 */
                 /* var internetExplorer = "MSIE";
                 if ( navigator.sayswho.indexOf( internetExplorer ) > -1 ) {
                     $("label.points").text("success");
                 } */
                 /* Alternative is a regex match:
-                   http://stackoverflow.com/a/6603043/148212
+                http://stackoverflow.com/a/6603043/148212
                 */
                 if ( /MSIE*/.test(navigator.sayswho) ) {
                     /* IE is doing some crazy rendering shit with resizing the tables and margins after click the label buttons.
-                       To get everything sized correctly, simulate clicks for all of those label buttons so the scores are at 0.
-                       The reset the colors. After doing a click on one of each pair of buttons, the table should be rendered correctly.
-                       http://stackoverflow.com/questions/17569012/simulate-a-click-on-a-element-using-javascript-jquery
+                    To get everything sized correctly, simulate clicks for all of those label buttons so the scores are at 0.
+                    The reset the colors. After doing a click on one of each pair of buttons, the table should be rendered correctly.
+                    http://stackoverflow.com/questions/17569012/simulate-a-click-on-a-element-using-javascript-jquery
                     */
                     $("label.points").css("margin", "0px");
                     $("label.points").click();
@@ -946,12 +946,12 @@
             }
 
             /* getScript is asynchronous by default.
-               What we want is to wait for it to load before running loadGameBoard().
-               To do this, use the ajaxSetup call to set async to false.
-               Then for the callback, make sure to not include brackets as that would cause the callback to run before getScript returns.
-               http://stackoverflow.com/a/9738224/148212
-               http://api.jquery.com/jQuery.ajaxSetup/
-               http://api.jquery.com/jQuery.getScript/
+            What we want is to wait for it to load before running loadGameBoard().
+            To do this, use the ajaxSetup call to set async to false.
+            Then for the callback, make sure to not include brackets as that would cause the callback to run before getScript returns.
+            http://stackoverflow.com/a/9738224/148212
+            http://api.jquery.com/jQuery.ajaxSetup/
+            http://api.jquery.com/jQuery.getScript/
             */
             function loadGameData(gameDataFile) {
                 // http://stackoverflow.com/questions/920930/how-to-create-json-by-javascript-for-loop
@@ -1054,8 +1054,8 @@
             }
 
             /* For dynamic elements, we now need to use on() for the bindings to work:
-               http://stackoverflow.com/questions/203198/event-binding-on-dynamically-created-elements
-               http://stackoverflow.com/questions/15090942/jquery-on-method-not-working-on-dynamic-content
+            http://stackoverflow.com/questions/203198/event-binding-on-dynamically-created-elements
+            http://stackoverflow.com/questions/15090942/jquery-on-method-not-working-on-dynamic-content
             */
             $(document.body).on('click', 'a.question' ,function() {
             //$("a.question").click(function(event) {
@@ -1067,7 +1067,7 @@
                 $(this).parent().css('height', '46px'); */
 
                 /* Use this code to change question colors and remove animations on hover.
-                   Can still click on them to redo the questions. */
+                Can still click on them to redo the questions. */
                 $(this).css('background-image', 'none');
                 $(this).css('background-repeat', 'none');
                 $(this).css('background-color', '#BD5BB8');
@@ -1178,7 +1178,7 @@
             });
 
             /* How to replace elements using javascript:
-               http://stackoverflow.com/a/13388745/148212
+            http://stackoverflow.com/a/13388745/148212
             */
             function replaceTargetWith( targetID, html ){
                 /// find our target
