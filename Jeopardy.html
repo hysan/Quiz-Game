@@ -680,7 +680,36 @@
                 document.getElementById('gameData').value = e.target.result;
             }
         </script>
-        
+
+		<!-- Code to handle loading external resources when running node-webkit as a
+			 packaged application. Context is changed in such a case for where the 
+			 app thinks it is running.
+			 The check that worked is this: http://stackoverflow.com/questions/13726877/target-node-webkit-browser-using-jquery
+			 What did not work was this check: typeof exports !== 'undefined' && this.exports !== exports
+			 that is supposed to tell if you are running a node.js module in the
+			 server or client, which is pretty telling as that means node-webkit is
+			 running in the server context: http://timetler.com/2012/10/13/environment-detection-in-javascript/
+			 These are other relevant discussions that center on this issue:
+			 https://groups.google.com/forum/#!topic/node-webkit/A6F-cBKW6Es
+			 https://groups.google.com/forum/#!topic/node-webkit/jdm-dtRdvAQ
+			 http://stackoverflow.com/questions/21746570/requiring-running-javascript-outside-of-node-webkit-application
+			 https://groups.google.com/forum/#!topic/node-webkit/IwGzluFC9iU/discussion
+		-->
+        <script type="text/javascript">
+			var pathstr = '';
+
+			if (typeof process == "object") {
+				console.log("I'm in node-webkit.");
+				console.log("node-webkit version " + process.versions['node-webkit']);
+				var path = require("path");
+				pathstr = path.dirname(process.execPath); 
+				console.log("pathstr = " + pathstr);
+				pathstr += '/';
+			} else {
+				console.log("I'm not node-webkit.");
+			}
+        </script>
+
         <!-- Custom jQuery code for handling team scores. -->
         <script type="text/javascript">
             /* Global Variables (some basic default values)
@@ -814,12 +843,12 @@
                     http://stackoverflow.com/a/5391984/148212
                 */
                 for (i = 0; i < videoNames.length; i++) {
-                    swfobject.registerObject("./assets/videos/" + videoNames[i] + "-Video", "9.0.0");
+                    swfobject.registerObject(pathstr + "videos/" + videoNames[i] + "-Video", "9.0.0");
                     replaceTargetWith( 'video' + (i+1), '<div class="swf-video"> \
                         <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="640" height="360" id="' + videoNames[i] + '-Video"> \
-                            <param name="movie" value="./assets/videos/' + videoNames[i] + '.swf"> \
+                            <param name="movie" value="' + pathstr + "videos/" + videoNames[i] + '.swf"> \
                             <!--[if !IE]>--> \
-                            <object type="application/x-shockwave-flash" data="./assets/videos/' + videoNames[i] + '.swf" width="640" height="360"> \
+                            <object type="application/x-shockwave-flash" data="' + pathstr + "videos/" + videoNames[i] + '.swf" width="640" height="360"> \
                             <!--<![endif]--> \
                                 <a href="http://www.adobe.com/go/getflashplayer"> \
                                     <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"> \
@@ -836,8 +865,9 @@
                 /* A single element replace would also work since the video tag is just a single element:
                     http://stackoverflow.com/questions/843680/how-to-replace-dom-element-in-place-using-javascript
                 */
+
                 for (i = 0; i < videoNames.length; i++) {
-                    replaceTargetWith( 'video' + (i+1), '<video src="./assets/videos/' + videoNames[i] + '.ogg" controls></video>' );
+                    replaceTargetWith( 'video' + (i+1), '<video src="' + pathstr + 'videos/' + videoNames[i] + '.ogg" controls></video>' );
                 }
             }
 
@@ -946,7 +976,7 @@
                 // http://stackoverflow.com/questions/650022/how-do-i-split-a-string-with-multiple-separators-in-javascript
                 // http://stackoverflow.com/questions/3216013/get-the-last-item-in-an-array
                 console.log(gameDataFile.split(/\/|\\/).slice(-1)[0]);
-                $.getScript('games/' + gameDataFile.split(/\/|\\/).slice(-1)[0], loadGameBoard);
+                $.getScript(pathstr + 'games/' + gameDataFile.split(/\/|\\/).slice(-1)[0], loadGameBoard);
                 // TODO: one problem is that jquery (or just any local html file in general) cannot access files above the parent directory
                 //       http://forum.jquery.com/topic/how-can-i-use-getscript-to-point-to-a-parent-directory
                 //       while node-webkit can.
