@@ -51,16 +51,6 @@ $(document.body).on('click', 'label.subtract' ,function() {
     updateScore($(this).attr("value"));
 });
 
-/*
-$(document).ready(function(){
-    $("button").click(function() {
-        if ($(this).attr("value") != "no-score") {
-            $("#" + $(this).attr("value")).text(parseInt($("#" + $(this).attr("value")).text(), 10) + points);
-        }
-    });
-});
-*/
-
 $(document.body).on('click', '#load-game' ,function() {
     $("div#setup-container").addClass('hide');
     // Show loading gif

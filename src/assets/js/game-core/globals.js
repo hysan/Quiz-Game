@@ -35,3 +35,13 @@ var categoryNames = [];
 var questionsPerCategory = 7;
 var questionJSON = {};
 
+var gui = null;
+var win = null;
+if (isNodeWebkit) {
+    // node-webkit window api - https://github.com/rogerwang/node-webkit/wiki/Window
+    // Load native UI library
+    gui = require('nw.gui'); //or global.window.nwDispatcher.requireNwGui() (see https://github.com/rogerwang/node-webkit/issues/707)
+
+    // Get the current window
+    win = gui.Window.get();
+}

@@ -196,55 +196,7 @@
         <script type="text/javascript" src="assets/js/game-core/utils.js"></script>
         <script type="text/javascript" src="assets/js/game-core/actions.js"></script>
         <script type="text/javascript" src="assets/js/game-core/listeners.js"></script>
-
-        <!-- Game Initialization Code -->
-        <script type="text/javascript">
-            window.onload = function() {
-                hideGameComponents();
-                /*
-                var myInstance = new nicEditor().panelInstance('ceditorNicEdit');
-                var myInstance2 = new nicEditor({
-                    buttonList: ['bold', 'italic', 'underline', 'left', 'center', 'right', 'ol', 'ul', 'fontSize', 'fontFamily', 'fontFormat', 'superscript', 'subscript', 'indent', 'outdent', 'link', 'unlink', 'striketrhough', 'forecolor', 'bgcolor', 'image', 'upload', 'xhtml']
-                    }).panelInstance('qeditorNicEdit');
-                */
-                // tinymce.init({selector:'textarea'});
-            }
-
-            $( document ).ready(function() {
-                // Handler for .ready() called.
-                //nicEditors.allTextAreas();
-
-                // node-webkit window api - https://github.com/rogerwang/node-webkit/wiki/Window
-                // Load native UI library
-                var gui = require('nw.gui'); //or global.window.nwDispatcher.requireNwGui() (see https://github.com/rogerwang/node-webkit/issues/707)
-
-                // Get the current window
-                var win = gui.Window.get();
-
-                // Listen to the minimize event
-                win.on('minimize', function() {
-                    console.log('Window is minimized');
-                });
-
-                // Start maximized
-                win.maximize();
-
-                // Minimize the window
-                //win.minimize();
-
-                // Unlisten the minimize event
-                //win.removeAllListeners('minimize');
-
-                // Create a new window and get it
-                //var new_win = gui.Window.get(
-                //    window.open('https://github.com')
-                //);
-
-                // And listen to new window's focus event
-                //new_win.on('focus', function() {
-                //    console.log('New window is focused');
-                //});
-            });
-        </script>
+        <!-- Initializes the game. Must load this last. -->
+        <script type="text/javascript" src="assets/js/game-core/init.js"></script>
     </body>
 </html>
