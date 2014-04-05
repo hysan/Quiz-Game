@@ -1,33 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="utf-8">
-        <title>Let's Play Jeopardy!</title>
+        <title>Jeopardy!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
 
-        <!-- Le styles -->
-        <link href="assets/css/bootstrap.css" rel="stylesheet">
-        <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-        <link href="assets/css/docs.css" rel="stylesheet">
-        <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
         <script src="assets/js/html5shiv.js"></script>
         <![endif]-->
 
-        <!-- Le fav and touch icons -->
-        <!--
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-        <link rel="shortcut icon" href="assets/ico/favicon.png">
-        -->
-
         <style media="screen" type="text/css">
+        /* Special grid styles pulled from docs.css as I 
+        originally based this on a copy of the Bootstrap docs.
+        -------------------------------------------------- */
+        .show-grid {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .show-grid [class*="span"] {
+            background-color: #eee;
+            text-align: center;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            min-height: 40px;
+            line-height: 40px;
+        }
+        .show-grid [class*="span"]:hover {
+            background-color: #ddd;
+        }
+        .show-grid .show-grid {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .show-grid .show-grid [class*="span"] {
+            margin-top: 5px;
+        }
+        .show-grid [class*="span"] [class*="span"] {
+            background-color: #ccc;
+        }
+        .show-grid [class*="span"] [class*="span"] [class*="span"] {
+            background-color: #999;
+        }
+        /* Space out the show-grid examples */
+        .show-grid [class*="span"] {
+            margin-bottom: 5px;
+        }
+
         /* Override the Bootstrap Doc style that puts padding on top of the body. */
         body {
             padding-top: 0px;
@@ -503,32 +527,11 @@
             </div>
         </div>
 
-        <!-- Le javascript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <!-- <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> -->
         <script src="assets/js/jquery.js"></script>
-        <script src="assets/js/bootstrap-transition.js"></script>
-        <script src="assets/js/bootstrap-alert.js"></script>
-        <script src="assets/js/bootstrap-modal.js"></script>
-        <script src="assets/js/bootstrap-dropdown.js"></script>
-        <script src="assets/js/bootstrap-scrollspy.js"></script>
-        <script src="assets/js/bootstrap-tab.js"></script>
-        <script src="assets/js/bootstrap-tooltip.js"></script>
-        <script src="assets/js/bootstrap-popover.js"></script>
-        <script src="assets/js/bootstrap-button.js"></script>
-        <script src="assets/js/bootstrap-collapse.js"></script>
-        <script src="assets/js/bootstrap-carousel.js"></script>
-        <script src="assets/js/bootstrap-typeahead.js"></script>
-        <script src="assets/js/bootstrap-affix.js"></script>
-        <script src="assets/js/holder/holder.js"></script>
-        <script src="assets/js/google-code-prettify/prettify.js"></script>
-        <script src="assets/js/application.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery-ui/jquery-ui.js"></script>
         <script src="assets/js/jquery-ui/jquery.ui.effect-highlight.js"></script>
-        <!-- <script src="assets/js/jquery-csv/jquery.csv-0.71.js"></script> -->
-        <!-- <script src="assets/js/nicEdit/nicEdit.js"></script> -->
-        <!-- <script src="assets/js/tinymce/jquery.tinymce.min.js"></script> -->
+
         <script type="text/javascript" src="swfobject/swfobject.js"></script>
         <script type="text/javascript">
             /* Example video:
