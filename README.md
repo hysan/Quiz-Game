@@ -23,7 +23,7 @@ Being digital isn't what makes this game work. You, the Dungeon Master, are the 
 
 ![Answer](/screenshots/answer.png?raw=true "Answer")
 
-![Awarding Points (automatically)](/screenshots/points.png?raw=true "Awarding Points (automatically)")
+![Awarding Points](/screenshots/points.png?raw=true "Awarding Points")
 
 ## History
 
